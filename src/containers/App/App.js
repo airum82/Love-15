@@ -7,7 +7,6 @@ import * as API from '../../API/APIcall';
 class App extends Component {
 
   async componentDidMount() {
-    // API.fetchCoords('Denver CO')
   }
   render() {
     return (

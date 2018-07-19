@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+import { courtReducer } from './courtReducer';
 
 const rootReducer = combineReducers({
-  closeCourts: []
+  closeCourts: courtReducer
 });
 
 export default rootReducer;

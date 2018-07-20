@@ -10,13 +10,12 @@ export const fetchCoords = async (location) => {
   return result.results[0].geometry.location
 }
 
-export const fetchCourts = async (lat, lon) => {
-  const url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' +
-  lat + ',' + lon + '&radius=17000&keyword=tennis&key=' + placesKey;
-  const response = await fetch(realUrl, {
-    method: 'GET'
-  });
-  console.log(response)
+// export const fetchCourts = async (lat, lon) => {
+//   const url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' +
+//   lat + ',' + lon + '&radius=17000&keyword=tennis&key=' + placesKey;
+//   const response = await fetch(realUrl, {
+//     method: 'GET'
+//   });
   // const result = await response.json();
   // console.log({
   //   name: result.name,
@@ -24,4 +23,4 @@ export const fetchCourts = async (lat, lon) => {
   //   rating: result.rating,
   //   location: result.vicinity
   // })
-}
+// }

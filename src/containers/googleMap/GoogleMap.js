@@ -4,12 +4,13 @@ import { mapsKey, geoKey } from '../../APIkey';
 import { cleanPlaces } from '../../Cleaner/cleaner';
 
 export class MapContainer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       places: [],
       coords: {},
-      location: ''
+      location: '',
+      map: ''
     }
   }
 
@@ -29,6 +30,7 @@ export class MapContainer extends Component {
     const coords = this.state.coords;
     const { google } = mapProps;
     const service = new google.maps.places.PlacesService(map);
+    console.log(service);
     service.nearbySearch({
       location: { lat: coords.lat, lng: coords.lng },
       radius: 17000,
@@ -47,24 +49,38 @@ export class MapContainer extends Component {
     })
   }
 
+  renderMap = () => {
+    this.setState({
+      map: ''
+    })
+    this.setState({
+      map: <Map
+        className="map"
+        onReady={this.fetchPlaces}
+        google={this.props.google}
+        zoom={14}
+        style={{
+          width: '50%',
+          height: '50vh'
+        }}
+        initialCenter={this.state.coords}
+        center={this.state.coords}
+      />
+    })
+  }
+
   render() {
     return (
-      <div>
-        <form onSubmit={(e) => {
+      <div className="map-container">
+        <form onSubmit={async (e) => {
           e.preventDefault();
-          this.fetchCoords(this.state.location);
+          await this.fetchCoords(this.state.location);
+          this.renderMap();
         }}>
           <input type='text' onChange={this.handleLocationEntry}/>
-          <Map
-            onClick={this.fetchPlaces}
-            google={this.props.google} 
-            zoom={14}
-            style={{
-              width: '50%',
-              height: '50vh'
-            }}
-          />
         </form>
+        {this.state.map}
+        {this.state.places.map(place => <p>{place.name}</p>)}
       </div>
     )
   }

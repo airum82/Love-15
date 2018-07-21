@@ -11,20 +11,26 @@ export class MapContainer extends Component {
     this.state = {
       coords: {},
       location: '',
-      map: ''
+      map: '',
+      errorMessage: ''
     }
   }
 
   fetchCoords = async (location) => {
     const splitLocation = location.split(' ');
-    console.log(splitLocation);
     const url = 'https://maps.googleapis.com/maps/api/geocode/json?address='
       + splitLocation[0] + ',+' + splitLocation[1] + '&key=' + geoKey;
-    const response = await fetch(url);
-    const result = await response.json();
-    this.setState({
+    try {
+      const response = await fetch(url);
+      const result = await response.json();
+      this.setState({
       coords: result.results[0].geometry.location
-    })
+      })
+    } catch(error) {
+        this.setState({
+          errorMessage: error.message
+        })
+    }
   }
 
   fetchPlaces = (mapProps, map) => {

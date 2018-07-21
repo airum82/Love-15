@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-export const CourtsContainer = (props) => {
+export const CourtsContainer = ({closeCourts}) => {
   let courts;
-  if(props.closeCourts) {
-      courts = props.closeCourts.map(court => {
+  if(closeCourts) {
+      courts = closeCourts.map(court => {
       return <li>court: {court.name}, address: {court.location}</li>
     })
   }
@@ -23,4 +24,8 @@ export const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps)(CourtsContainer)
+
+CourtsContainer.propTypes = {
+  closeCourts: PropTypes.array
+}
 

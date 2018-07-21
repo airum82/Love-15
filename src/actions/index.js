@@ -1,4 +1,4 @@
-export const findCourts = (nearbyCourts) => ({
+export const fetchCourts = (nearbyCourts) => ({
   type: 'COURTS',
   nearbyCourts
 })

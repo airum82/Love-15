@@ -2,6 +2,8 @@ import { GoogleApiWrapper, Map } from 'google-maps-react';
 import React, { Component } from 'react';
 import { mapsKey, geoKey } from '../../APIkey';
 import { cleanPlaces } from '../../Cleaner/cleaner';
+import { connect } from 'react-redux';
+import { fetchCourts } from '../../actions';
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -30,16 +32,12 @@ export class MapContainer extends Component {
     const coords = this.state.coords;
     const { google } = mapProps;
     const service = new google.maps.places.PlacesService(map);
-    console.log(service);
     service.nearbySearch({
       location: { lat: coords.lat, lng: coords.lng },
       radius: 17000,
       keyword: ['tennis']
     }, (result) => {
-      console.log(result)
-      this.setState({
-        places: cleanPlaces(result)
-      });
+      this.props.handlefetchCourts(cleanPlaces(result));
     })
   };
 
@@ -79,13 +77,15 @@ export class MapContainer extends Component {
         }}>
           <input type='text' onChange={this.handleLocationEntry}/>
         </form>
-        {this.state.map}
-        {this.state.places.map(place => <p>{place.name}</p>)}
       </div>
     )
   }
  }
 
-export default GoogleApiWrapper({
+ export const mapDispatchToProps = (dispatch) => ({
+  handlefetchCourts: (courts) => dispatch(fetchCourts(courts))
+ });
+
+export default connect(null, mapDispatchToProps)(GoogleApiWrapper({
   apiKey: mapsKey
-})(MapContainer)
+})(MapContainer));

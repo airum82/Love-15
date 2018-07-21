@@ -77,6 +77,7 @@ export class MapContainer extends Component {
         }}>
           <input type='text' onChange={this.handleLocationEntry}/>
         </form>
+        {this.state.map}
       </div>
     )
   }

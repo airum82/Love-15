@@ -13,6 +13,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <h1>Love-15</h1>
+      <h3>It's time to rally!</h3>
         <MapContainer />
       </div>
     );

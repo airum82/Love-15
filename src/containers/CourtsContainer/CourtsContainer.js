@@ -8,7 +8,7 @@ export const CourtsContainer = (props) => {
       return <li>court: {court.name}, address: {court.location}</li>
     })
   }
-    
+
   return (
     <div className="courts-container">
       <ul>

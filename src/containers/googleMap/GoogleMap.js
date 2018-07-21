@@ -9,7 +9,6 @@ export class MapContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      places: [],
       coords: {},
       location: '',
       map: ''
@@ -50,19 +49,6 @@ export class MapContainer extends Component {
     })
   }
 
-  makeMarkers = () => {
-    console.log(this.state.places)
-    return this.state.places.map(court => {
-      return (
-        <Marker
-          title={'courts'}
-          name={court.name}
-          position={court.coords}
-        />
-      )
-    })
-  }
-
   makeMap = () => {
     this.setState({
       map: ''
@@ -73,15 +59,14 @@ export class MapContainer extends Component {
         onReady={this.fetchPlaces}
         google={this.props.google}
         zoom={14}
+        visible={false}
         style={{
           width: '50%',
           height: '50vh'
         }}
         initialCenter={this.state.coords}
         center={this.state.coords}
-      >
-        {this.makeMarkers()}
-      </Map>,
+      />
     })
   }
 

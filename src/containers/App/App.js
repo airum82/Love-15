@@ -5,17 +5,17 @@ import { connect } from 'react-redux';
 import MapContainer from '../googleMap/GoogleMap';
 import * as API from '../../API/APIcall';
 import GoogleMap from '../googleMap/GoogleMap';
+import CourtsContainer from '../CourtsContainer/CourtsContainer';
 
 class App extends Component {
 
-  async componentDidMount() {
-  }
   render() {
     return (
       <div className="App">
-      <h1>Love-15</h1>
-      <h3>It's time to rally!</h3>
+        <h1>Love-15</h1>
+        <h3>It's time to rally!</h3>
         <MapContainer />
+        <CourtsContainer />
       </div>
     );
   }

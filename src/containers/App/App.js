@@ -3,11 +3,10 @@ import './App.css';
 import { Route, NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MapContainer from '../googleMap/GoogleMap';
-import * as API from '../../API/APIcall';
-import GoogleMap from '../googleMap/GoogleMap';
 import CourtsContainer from '../CourtsContainer/CourtsContainer';
+import PropTypes from 'prop-types';
 
-class App extends Component {
+export class App extends Component {
 
   render() {
     return (
@@ -21,8 +20,12 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   closeCourts: state.closeCourts
 })
 
 export default connect(mapStateToProps, null)(App);
+
+App.propTypes = {
+  closeCourts: PropTypes.array
+}

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createAccount } from '../../actions';
-import { create } from 'domain';
 
 export class CreateAccount extends Component {
   constructor(props) {
@@ -35,7 +34,7 @@ export class CreateAccount extends Component {
           <input type="text" name="name" />
           <input type="password" name="password" />
           <input type="text" name="dateOfBirth" />
-          <button>Create Account</button>
+            <button>Create Account</button>
         </form>
       </div>
     )

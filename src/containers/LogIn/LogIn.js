@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logIn } from '../../actions';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 export class LogIn extends Component {
   constructor(props) {
@@ -32,6 +33,9 @@ export class LogIn extends Component {
           <input type="password" name="password" />
           <button>Log In</button>
         </form>
+        <NavLink to='/createAccount'>
+          Don't have an account? create one!
+        </NavLink>
       </div>
     )
   }
@@ -42,3 +46,7 @@ export const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(null, mapDispatchToProps)(LogIn);
+
+LogIn.propTypes = {
+  handleLogIn: PropTypes.func
+}

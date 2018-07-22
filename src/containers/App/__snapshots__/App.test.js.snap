@@ -24,6 +24,8 @@ ShallowWrapper {
         <h3>
           It's time to rally!
 </h3>,
+        <Connect(LogIn) />,
+        <Connect(CreateAccount) />,
         <Connect(Wrapper) />,
         <Connect(Component) />,
       ],
@@ -71,6 +73,24 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
     ],
     "type": "div",
   },
@@ -87,6 +107,8 @@ ShallowWrapper {
           <h3>
             It's time to rally!
 </h3>,
+          <Connect(LogIn) />,
+          <Connect(CreateAccount) />,
           <Connect(Wrapper) />,
           <Connect(Component) />,
         ],
@@ -115,6 +137,24 @@ ShallowWrapper {
           "ref": null,
           "rendered": "It's time to rally!",
           "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
         },
         Object {
           "instance": null,

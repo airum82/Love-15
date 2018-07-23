@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import LogIn from '../LogIn/LogIn';
 import { Header } from '../Header/Header';
+import CourtMapContainer from '../CourtMapContainer/CourtMapContainer';
 
 export class App extends Component {
 
@@ -28,6 +29,7 @@ export class App extends Component {
               </div>
             )} }/>
           <Route path = '/createAccount' component={CreateAccount} />
+          <CourtMapContainer />
         </div>
       </div>
     );

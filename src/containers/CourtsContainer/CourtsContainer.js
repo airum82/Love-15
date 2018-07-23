@@ -15,7 +15,6 @@ export const CourtsContainer = ({closeCourts, handleSubmitCourts}) => {
     handleSubmitCourts(makeMapKey);
   }
   if(closeCourts.length) {
-    console.log(makeMapKey)
     let key = 0;
     const courts = closeCourts.map(court => {
     return (

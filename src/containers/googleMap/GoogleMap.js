@@ -44,6 +44,7 @@ export class MapContainer extends Component {
       keyword: ['tennis']
     }, (result) => {
       this.props.handlefetchCourts(cleanPlaces(result));
+      this.setState({map: ''});
     })
   };
 

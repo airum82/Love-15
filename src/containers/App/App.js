@@ -7,22 +7,20 @@ import CourtsContainer from '../CourtsContainer/CourtsContainer';
 import PropTypes from 'prop-types';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import LogIn from '../LogIn/LogIn';
+import { Header } from '../Header/Header';
 
 export class App extends Component {
 
   render() {
     return (
       <div className="App">
-        <NavLink to='/' style={{textDecoration: 'none'}}>
-        <div className="header">
-          <h1>Love-15</h1>
-          <h3>It's time to rally!</h3>
+        <div className="header-styling">
+          <Header />
+          <Route exact path = '/logIn' component={LogIn} />
+          <Route exact path = '/' component={CourtsContainer} />
+          <Route exact path = '/' component={MapContainer} />
+          <Route path = '/createAccount' component={CreateAccount} />
         </div>
-        </NavLink>
-        <Route exact path = '/' component={LogIn} />
-        <Route exact path = '/' component={MapContainer} />
-        <Route exact path = '/' component={CourtsContainer} />
-        <Route path = '/createAccount' component={CreateAccount} />
       </div>
     );
   }

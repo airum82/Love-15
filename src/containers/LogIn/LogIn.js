@@ -30,8 +30,8 @@ export class LogIn extends Component {
             this.props.handleLogIn(this.state);
           }}
         >
-          Email: <input type="email" name="email" />
-          Password: <input type="password" name="password" />
+          <p>Email:</p> <input type="email" name="email" />
+          <p className="password">Password:</p> <input type="password" name="password" />
           <button>Log In</button>
         </form>
         <NavLink to='/createAccount' style={{ textDecoration: 'none', color: '#3B3738' }}>

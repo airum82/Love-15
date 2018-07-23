@@ -1,18 +1,18 @@
-color1: #FFF3F7;
-color2: #A2B8A6;
-color3: #326F71;
-color4: #DEE155;
-color5: #3B3738;
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+
+body {
+  --light-red: rgba(214, 55, 71, .6);
+  --court-blue:  rgba(0, 75, 130, 1);
+  --harvest:  rgba(229, 149, 0, 1);
+  --off-white:  rgba(229, 218, 218, 1);
+  --off-black:  rgba(7, 14, 56, 1);
+  font-family: 'Merriweather', serif;
+}
 
 .App {
   text-align: center;
 }
 
-.header {
-  background-color: #326F71;
-  border-radius: 25px;
-  color: #DEE155;
+.header-styling {
   margin: 0 auto;
-  text-align: center;
-  width: 50%;
 }

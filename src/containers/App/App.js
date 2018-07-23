@@ -18,9 +18,6 @@ export class App extends Component {
         <div className="header-styling">
           <Header />
           <Route exact path = '/logIn' component={LogIn} />
-          <NavLink to='/logIn'>
-            <button>Log In</button>
-          </NavLink>
           <Route exact path = '/' render={() => {
             return (
               <div>

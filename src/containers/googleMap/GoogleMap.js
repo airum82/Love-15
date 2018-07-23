@@ -43,9 +43,6 @@ export class MapContainer extends Component {
       radius: 17000,
       keyword: ['tennis']
     }, (result) => {
-      this.setState({
-        places: cleanPlaces(result)
-      })
       this.props.handlefetchCourts(cleanPlaces(result));
     })
   };

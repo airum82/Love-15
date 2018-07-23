@@ -20,8 +20,13 @@ export class App extends Component {
           <NavLink to='/logIn'>
             <button>Log In</button>
           </NavLink>
-          <Route exact path = '/' component={MapContainer} />
-          <Route exact path = '/' component={CourtsContainer} />
+          <Route exact path = '/' render={() => {
+            return (
+              <div>
+                <MapContainer />
+                <CourtsContainer />
+              </div>
+            )} }/>
           <Route path = '/createAccount' component={CreateAccount} />
         </div>
       </div>

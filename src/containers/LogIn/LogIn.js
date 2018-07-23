@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { logIn } from '../../actions';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import './LogIn.css'
 
 export class LogIn extends Component {
   constructor(props) {
@@ -29,11 +30,11 @@ export class LogIn extends Component {
             this.props.handleLogIn(this.state);
           }}
         >
-          <input type="email" name="email" />
-          <input type="password" name="password" />
+          Email: <input type="email" name="email" />
+          Password: <input type="password" name="password" />
           <button>Log In</button>
         </form>
-        <NavLink to='/createAccount'>
+        <NavLink to='/createAccount' style={{ textDecoration: 'none', color: '#3B3738' }}>
           Don't have an account? create one!
         </NavLink>
       </div>

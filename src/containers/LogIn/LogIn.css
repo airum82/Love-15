@@ -1,0 +1,21 @@
+.log-in {
+  text-align: center;
+}
+
+.log-in input {
+  display: block;
+  margin: 0 auto;
+  padding: 0 9% 0 0;
+}
+
+.log-in button {
+  margin: 1% 0;
+  padding: 1% 5%;
+  border: none;
+  background-color: #A2B8A6;
+  border-radius: 25px;
+}
+
+.log-in button:hover {
+  cursor: pointer;
+}

@@ -13,9 +13,11 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavLink to='/'>
+        <NavLink to='/' style={{textDecoration: 'none'}}>
+        <div className="header">
           <h1>Love-15</h1>
           <h3>It's time to rally!</h3>
+        </div>
         </NavLink>
         <Route exact path = '/' component={LogIn} />
         <Route exact path = '/' component={MapContainer} />

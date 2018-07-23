@@ -1,3 +1,18 @@
+color1: #FFF3F7;
+color2: #A2B8A6;
+color3: #326F71;
+color4: #DEE155;
+color5: #3B3738;
+
 .App {
   text-align: center;
+}
+
+.header {
+  background-color: #326F71;
+  border-radius: 25px;
+  color: #DEE155;
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
 }

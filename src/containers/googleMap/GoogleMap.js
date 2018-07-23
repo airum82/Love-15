@@ -4,6 +4,7 @@ import { mapsKey, geoKey } from '../../APIkey';
 import { cleanPlaces } from '../../Cleaner/cleaner';
 import { connect } from 'react-redux';
 import { fetchCourts } from '../../actions';
+import './GoogleMap.css'
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -42,10 +43,8 @@ export class MapContainer extends Component {
       radius: 17000,
       keyword: ['tennis']
     }, (result) => {
-      this.setState({
-        places: cleanPlaces(result)
-      })
       this.props.handlefetchCourts(cleanPlaces(result));
+      this.setState({map: ''});
     })
   };
 

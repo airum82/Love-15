@@ -1,20 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Route } from 'react-router-dom';
+import { CourtCard } from '../../components/CourtCard/CourtCard';
 
 export const CourtsContainer = ({closeCourts}) => {
   let courts;
   if(closeCourts) {
       courts = closeCourts.map(court => {
-      return <li>court: {court.name}, address: {court.location}</li>
+      return (
+        <CourtCard
+         name={court.name}
+         location={court.location}
+        />
+      )
     })
   }
 
   return (
     <div className="courts-container">
-      <ul>
-        {courts}
-      </ul>
+      {courts}
     </div>
   )
 }

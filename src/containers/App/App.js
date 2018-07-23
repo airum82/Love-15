@@ -17,8 +17,11 @@ export class App extends Component {
         <div className="header-styling">
           <Header />
           <Route exact path = '/logIn' component={LogIn} />
-          <Route exact path = '/' component={CourtsContainer} />
+          <NavLink to='/logIn'>
+            <button>Log In</button>
+          </NavLink>
           <Route exact path = '/' component={MapContainer} />
+          <Route exact path = '/' component={CourtsContainer} />
           <Route path = '/createAccount' component={CreateAccount} />
         </div>
       </div>

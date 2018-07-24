@@ -56,6 +56,7 @@ export const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(CourtsContainer)
 
 CourtsContainer.propTypes = {
-  closeCourts: PropTypes.array
+  closeCourts: PropTypes.array,
+  handleSubmitCourts: PropTypes.func
 }
 

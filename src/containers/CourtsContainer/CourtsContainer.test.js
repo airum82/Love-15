@@ -1,7 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { CourtsContainer } from './CourtsContainer';
+import { CourtsContainer, mapDispatchToProps } from './CourtsContainer';
 import { CourtCard } from '../../components/CourtCard/CourtCard';
+import { fetchCourts } from '../../actions';
 
 describe('CourtsContainer', () => {
 
@@ -53,7 +54,15 @@ describe('CourtsContainer', () => {
       />
     ];
     expect(wrapper.instance().makeCourts()).toEqual(expectedOutput);
-    
+  })
+
+  it('handleSubmitCourts should call dispatch with correct params', () => {
+    const mockDispatch = jest.fn();
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    const mockCourts = [{}, {}];
+    mappedProps.handleSubmitCourts(mockCourts);
+    expect(mockDispatch).toHaveBeenCalledWith(fetchCourts(mockCourts));
+
   })
 
 })

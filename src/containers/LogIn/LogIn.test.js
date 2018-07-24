@@ -2,6 +2,7 @@ import { LogIn, mapDispatchToProps } from './LogIn';
 import { shallow, mount} from 'enzyme';
 import React, { Component } from 'react';
 import { logIn } from '../../actions';
+import { BrowserRouter } from 'react-router-dom';
 
 describe('LogIn', () => {
   let wrapper;
@@ -14,10 +15,10 @@ describe('LogIn', () => {
   })
 
   it('should call handleAccountEntry on change to form', () => {
-    wrapper = mount(<LogIn />);
+    wrapper = shallow(<LogIn />);
     const spy = jest.spyOn(wrapper.instance(), 'handleAccountEntry');
-    wrapper.find('form').simulate('change');
-    wrapper.find('form').simulate('change');
+    wrapper.find('form').simulate('change', { target: ''});
+    wrapper.find('form').simulate('change', { target: ''});
     expect(spy).toHaveBeenCalled();
   })
 
@@ -43,9 +44,11 @@ describe('LogIn', () => {
 
   it('should call handleLogIn on form submit with correct params', () => {
     const mockHandleLogIn = jest.fn()
-    wrapper = mount(<LogIn handleLogIn={mockHandleLogIn} />);
+    wrapper = shallow(
+        <LogIn handleLogIn={mockHandleLogIn} />
+      );
     const state = wrapper.state();
-    wrapper.find('form').simulate('submit');
+    wrapper.find('form').simulate('submit', { preventDefault: jest.fn()});
     expect(mockHandleLogIn).toHaveBeenCalledWith(state);
   })
 })

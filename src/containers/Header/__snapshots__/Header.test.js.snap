@@ -1,0 +1,269 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should match snapshot upon render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          style={
+                    Object {
+                              "textDecoration": "none",
+                            }
+          }
+          to="/"
+>
+          <img
+                    className="logo"
+                    src="love-15-logo2.png"
+          />
+          <h3>
+                    It's time to rally!
+          </h3>
+</NavLink>,
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          to="/logIn"
+>
+          <Route
+                    exact={true}
+                    path="/"
+                    render={[Function]}
+          />
+</NavLink>,
+      ],
+      "className": "header",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "activeClassName": "active",
+          "aria-current": "page",
+          "children": Array [
+            <img
+              className="logo"
+              src="love-15-logo2.png"
+/>,
+            <h3>
+              It's time to rally!
+</h3>,
+          ],
+          "style": Object {
+            "textDecoration": "none",
+          },
+          "to": "/",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "logo",
+              "src": "love-15-logo2.png",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "It's time to rally!",
+            },
+            "ref": null,
+            "rendered": "It's time to rally!",
+            "type": "h3",
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "activeClassName": "active",
+          "aria-current": "page",
+          "children": <Route
+            exact={true}
+            path="/"
+            render={[Function]}
+/>,
+          "to": "/logIn",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "exact": true,
+            "path": "/",
+            "render": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            style={
+                        Object {
+                                    "textDecoration": "none",
+                                  }
+            }
+            to="/"
+>
+            <img
+                        className="logo"
+                        src="love-15-logo2.png"
+            />
+            <h3>
+                        It's time to rally!
+            </h3>
+</NavLink>,
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            to="/logIn"
+>
+            <Route
+                        exact={true}
+                        path="/"
+                        render={[Function]}
+            />
+</NavLink>,
+        ],
+        "className": "header",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": Array [
+              <img
+                className="logo"
+                src="love-15-logo2.png"
+/>,
+              <h3>
+                It's time to rally!
+</h3>,
+            ],
+            "style": Object {
+              "textDecoration": "none",
+            },
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "logo",
+                "src": "love-15-logo2.png",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "It's time to rally!",
+              },
+              "ref": null,
+              "rendered": "It's time to rally!",
+              "type": "h3",
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": <Route
+              exact={true}
+              path="/"
+              render={[Function]}
+/>,
+            "to": "/logIn",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "exact": true,
+              "path": "/",
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

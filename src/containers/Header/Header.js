@@ -11,7 +11,6 @@ export const Header = (props) => {
         <img src={logo} className="logo"/>
         <h3>It's time to rally!</h3>
       </NavLink>
-      
       <NavLink to='/logIn'>
         <Route exact path='/' render={() => <button>Log In</button>} />
       </NavLink>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, NavLink, Link, withRouter } from 'react-router-dom';
+import { Route, NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MapContainer from '../googleMap/GoogleMap';
 import CourtsContainer from '../CourtsContainer/CourtsContainer';
@@ -31,16 +31,15 @@ export class App extends Component {
             const court = this.props.closeCourts.find( court => {
               return court.id === parseInt(match.params.id)
             })
-            console.log(court.coord)
             return (
-              <div>
+              <div className="court-with-map">
                 <CourtCard
                   name={court.name}
                   location={court.location}
                   id={court.id}
                 />
                 <NavLink to='/' >
-                  <button>back</button>
+                  <button className="back-button">back</button>
                 </NavLink>
                 <CourtMap
                   coord={court.coord}

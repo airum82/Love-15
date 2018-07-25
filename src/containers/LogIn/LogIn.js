@@ -34,11 +34,11 @@ export class LogIn extends Component {
             })
           }}
         >
-          <p>Email:</p> <input type="email" name="email" value={this.state.email}/>
-          <p className="password">Password:</p> <input type="password" name="password" value={this.state.password}/>
+          <p>Email:</p><input type="email" name="email" value={this.state.email}/>
+          <p>Password:</p><input type="password" name="password" value={this.state.password}/>
           <button>Log In</button>
         </form>
-        <NavLink to='/createAccount' style={{ textDecoration: 'none', color: '#3B3738' }}>
+        <NavLink className="create-link" to='/createAccount'>
           Don't have an account? create one!
         </NavLink>
       </div>

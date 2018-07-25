@@ -2,6 +2,7 @@ import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
 import { mapsKey } from '../../APIkey';
 import React from 'react';
 import PropTypes from 'prop-types';
+import './CourtMap.css';
 
 export const CourtMap = ({coord, google}) => {
   return (

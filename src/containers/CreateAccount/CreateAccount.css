@@ -3,9 +3,7 @@
   text-align: center;
 }
 
-form {
-  display: grid;
-  grid-template-columns: 25% 50%;
+.create-account form {
   width: 55%;
   margin: 5% auto;
   grid-row-gap: 10px;
@@ -17,8 +15,4 @@ form {
 
 .create-account p {
   text-align: left;
-}
-
-button {
-  grid-column: 2;
 }

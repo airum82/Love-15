@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Route } from 'react-router-dom';
 import logo from '../../images/love-15-logo2.png';
+import { logOut } from '../../actions';
 import './Header.css';
 import { connect } from 'react-redux';
 
@@ -21,7 +22,7 @@ export const Header = (props) => {
       {props.account.email ? 
         <div>
           <p>Welcome {props.account.email}</p>
-          <button>Log Out</button>
+          <button onClick={props.handleLogOut}>Log Out</button>
         </div> 
       : ''}
     </div>
@@ -32,4 +33,8 @@ export const mapStateToProps = (state) => ({
   account: state.account
 })
 
-export default connect(mapStateToProps)(Header);
+export const mapDispatchToProps = (dispatch) => ({
+  handleLogOut: () => dispatch(logOut())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

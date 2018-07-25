@@ -12,3 +12,7 @@ export const logIn = (accountInfo) => ({
   type: 'LOG_IN',
   accountInfo
 })
+
+export const logOut = () => ({
+  type: 'LOG_OUT',
+})

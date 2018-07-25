@@ -7,7 +7,7 @@ import CourtsContainer from '../CourtsContainer/CourtsContainer';
 import PropTypes from 'prop-types';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import LogIn from '../LogIn/LogIn';
-import { Header } from '../Header/Header';
+import Header from '../Header/Header';
 import { CourtCard } from '../../components/CourtCard/CourtCard';
 import CourtMap from '../../components/CourtMap/CourtMap';
 

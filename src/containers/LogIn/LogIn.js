@@ -10,7 +10,7 @@ export class LogIn extends Component {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
     }
   }
 

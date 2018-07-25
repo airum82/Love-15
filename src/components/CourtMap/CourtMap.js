@@ -1,6 +1,7 @@
 import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
 import { mapsKey } from '../../APIkey';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const CourtMap = ({coord, google}) => {
   return (
@@ -10,8 +11,8 @@ export const CourtMap = ({coord, google}) => {
       initialCenter={coord}
       center={coord}
       style={{
-        width: '40vw',
-        height: '40vh',
+        width: '50vw',
+        height: '50vh',
       }}
     >
       <Marker
@@ -24,3 +25,8 @@ export const CourtMap = ({coord, google}) => {
 export default GoogleApiWrapper({
   apiKey: mapsKey
 })(CourtMap);
+
+CourtMap.propTypes = {
+  google: PropTypes.object,
+  coords: PropTypes.object
+}

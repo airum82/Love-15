@@ -9,7 +9,7 @@ import CreateAccount from '../CreateAccount/CreateAccount';
 import LogIn from '../LogIn/LogIn';
 import { Header } from '../Header/Header';
 import { CourtCard } from '../../components/CourtCard/CourtCard';
-import { CourtMap } from '../../components/CourtMap/CourtMap';
+import CourtMap from '../../components/CourtMap/CourtMap';
 
 export class App extends Component {
 
@@ -31,25 +31,22 @@ export class App extends Component {
             const court = this.props.closeCourts.find( court => {
               return court.id === parseInt(match.params.id)
             })
+            console.log(court.coord)
             return (
               <div>
                 <CourtCard
                   name={court.name}
                   location={court.location}
+                  id={court.id}
                 />
+                <NavLink to='/' >
+                  <button>back</button>
+                </NavLink>
                 <CourtMap
-                  coord={court.coords}
+                  coord={court.coord}
                 />
               </div>
             )}}
-          />
-          <Route path='/court' render={() => {
-            return (
-              <NavLink to='/' >
-                <button>back</button>
-              </NavLink>
-            )
-            }}
           />
         </div>
       </div>

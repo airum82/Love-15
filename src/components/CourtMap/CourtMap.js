@@ -2,19 +2,20 @@ import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
 import { mapsKey } from '../../APIkey';
 import React from 'react';
 
-export const CourtMap = ({coords, google}) => {
+export const CourtMap = ({coord, google}) => {
   return (
     <Map
       google={google}
       zoom={14}
-      initialCenter={coords}
+      initialCenter={coord}
+      center={coord}
       style={{
-        width: '20vw',
-        height: '20vh'
+        width: '40vw',
+        height: '40vh',
       }}
     >
       <Marker
-        position={coords}
+        position={coord}
       />
     </Map>
   )

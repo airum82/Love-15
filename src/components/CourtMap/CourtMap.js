@@ -11,8 +11,9 @@ export const CourtMap = ({coord, google}) => {
       initialCenter={coord}
       center={coord}
       style={{
-        width: '50vw',
+        width: '60vw',
         height: '50vh',
+        margin: '3% auto'
       }}
     >
       <Marker

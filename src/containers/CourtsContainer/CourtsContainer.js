@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { CourtCard } from '../../components/CourtCard/CourtCard';
 import { fetchCourts } from '../../actions';
 import { toggleMapKey } from '../../Cleaner/cleaner';
+import './CourtsContainer.css';
 
 export class CourtsContainer extends Component {
 

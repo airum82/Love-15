@@ -13,12 +13,10 @@ export const Header = (props) => {
         <img src={logo} className="logo"/>
         <h3>It's time to rally!</h3>
       </NavLink>
-      <NavLink to='/logIn'>
-        {!props.account.email ? 
-          <Route exact path='/' render={
-            () => <button>Log In</button>} /> : ''
-        }
-      </NavLink>
+      {props.account.email ? '' :
+        <NavLink to='/logIn'>
+          <button>Log In</button>
+      </NavLink>}
       {props.account.email ? 
         <div>
           <p>Welcome {props.account.email}</p>

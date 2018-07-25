@@ -79,6 +79,7 @@ export class MapContainer extends Component {
   render() {
     return (
       <div className="map-container">
+        <h5>Enter a city, address or zipcode to search for tennis courts</h5>
         <form onSubmit={async (e) => {
           e.preventDefault();
           await this.fetchCoords(this.state.location);

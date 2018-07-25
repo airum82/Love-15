@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import './CourtCard.css';
 
 export const CourtCard = ({name, location, id}) => {
   return (

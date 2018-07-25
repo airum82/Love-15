@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
 
+
 body {
   --light-red: rgba(214, 55, 71, .6);
   --court-blue:  rgba(0, 75, 130, 1);
@@ -7,6 +8,8 @@ body {
   --off-white:  rgba(229, 218, 218, 1);
   --off-black:  rgba(7, 14, 56, 1);
   font-family: 'Merriweather', serif;
+  background-image: url('../../images/tennis-wallpaper.jpg');
+  background-size: cover;
 }
 
 .App {

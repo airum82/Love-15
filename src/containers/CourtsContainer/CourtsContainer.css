@@ -1,0 +1,8 @@
+.courts-container {
+  display: grid;
+  grid-template-columns: 25% 25% 25%;
+  justify-content: space-around;
+  grid-row-gap: 15px;
+  margin-top: 5%;
+}
+

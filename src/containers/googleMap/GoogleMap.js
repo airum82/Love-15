@@ -1,4 +1,4 @@
-import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
+import { GoogleApiWrapper, Map } from 'google-maps-react';
 import React, { Component } from 'react';
 import { mapsKey, geoKey } from '../../APIkey';
 import { cleanPlaces } from '../../Cleaner/cleaner';
@@ -43,6 +43,7 @@ export class MapContainer extends Component {
       radius: 17000,
       keyword: ['tennis']
     }, (result) => {
+      console.log(result);
       this.props.handlefetchCourts(cleanPlaces(result));
       this.setState({map: ''});
     })
@@ -78,6 +79,7 @@ export class MapContainer extends Component {
   render() {
     return (
       <div className="map-container">
+        <h5>Enter a city, address or zipcode to search for tennis courts</h5>
         <form onSubmit={async (e) => {
           e.preventDefault();
           await this.fetchCoords(this.state.location);

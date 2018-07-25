@@ -1,9 +1,14 @@
 .map-container {
   text-align: center;
-  margin-top: 9%;
+  margin-top: 5%;
 }
 .map-container input {
-  font-size: 1.4em;
+  font-size: 1.5em;
+}
+
+.map-container h5 {
+  font-size: 1.3em;
+  color: #4c4c48;
 }
 
 .map-container form {
@@ -13,10 +18,10 @@
 }
 
 .map-container button {
-  padding: 2%;
-  background-color: rgba(0, 75, 130, 1);
-  border-radius: 0 25px 25px 0;
+  padding: 1%;
+  background-color: #60b0f4;
+  border-radius: 0 22px 22px 0;
   color: white;
-  font-size: 1em;
+  font-size: 1.2em;
   border: none;
 }

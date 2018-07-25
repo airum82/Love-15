@@ -10,7 +10,7 @@ export class LogIn extends Component {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
     }
   }
 
@@ -28,13 +28,17 @@ export class LogIn extends Component {
           onSubmit={(e) => {
             e.preventDefault();
             this.props.handleLogIn(this.state);
+            this.setState({
+              email: '',
+              password: ''
+            })
           }}
         >
-          <p>Email:</p> <input type="email" name="email" />
-          <p className="password">Password:</p> <input type="password" name="password" />
+          <p>Email:</p><input type="email" name="email" value={this.state.email}/>
+          <p>Password:</p><input type="password" name="password" value={this.state.password}/>
           <button>Log In</button>
         </form>
-        <NavLink to='/createAccount' style={{ textDecoration: 'none', color: '#3B3738' }}>
+        <NavLink className="create-link" to='/createAccount'>
           Don't have an account? create one!
         </NavLink>
       </div>

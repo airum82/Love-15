@@ -1,41 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { CourtCard } from '../../components/CourtCard/CourtCard';
 import { fetchCourts } from '../../actions';
+import { toggleMapKey } from '../../Cleaner/cleaner';
+import './CourtsContainer.css';
 
-export const CourtsContainer = ({closeCourts, handleSubmitCourts}) => {
-  const makeMapKey = (name) => {
-    const makeMapKey = closeCourts.map(court => {
-      if(court.name === name) {
-        return {...court, map: true};
-      }
-        return court;
-    });
-    handleSubmitCourts(makeMapKey);
+export class CourtsContainer extends Component {
+
+  makeCourts = () => {
+    return this.props.closeCourts.map((court, index) => {
+      return (
+        <CourtCard
+          name={court.name}
+          location={court.location}
+          key={index}
+          id={index}
+        />
+      )
+    })
   }
-  if(closeCourts.length) {
-    let key = 0;
-    const courts = closeCourts.map(court => {
-    return (
-      <CourtCard
-       name={court.name}
-       location={court.location}
-       makeMapKey={makeMapKey}
-       key={key++}
-      />
-    )
-  })
-    return (
-      <div className="courts-container">
-        {courts}
-      </div>
-    )
-  } else {
-    return (
-      <div className="courts-container">
-      </div>
-    )
+
+  render() {
+    if(this.props.closeCourts.length) {
+      return (
+        <div className="courts-container">
+          {this.makeCourts()}
+        </div>
+      )
+    } else {
+      return (
+        <div className="courts-container">
+        </div>
+      )
+    }
   }
 }
 
@@ -50,6 +48,7 @@ export const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(CourtsContainer)
 
 CourtsContainer.propTypes = {
-  closeCourts: PropTypes.array
+  closeCourts: PropTypes.array,
+  handleSubmitCourts: PropTypes.func
 }
 

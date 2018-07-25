@@ -1,0 +1,18 @@
+.create-account {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.create-account form {
+  width: 55%;
+  margin: 5% auto;
+  grid-row-gap: 10px;
+}
+
+.create-account input {
+  height: 5vh;
+}
+
+.create-account p {
+  text-align: left;
+}

@@ -8,7 +8,8 @@ import PropTypes from 'prop-types';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import LogIn from '../LogIn/LogIn';
 import { Header } from '../Header/Header';
-import CourtMapContainer from '../CourtMapContainer/CourtMapContainer';
+import { CourtCard } from '../../components/CourtCard/CourtCard';
+import { CourtMap } from '../../components/CourtMap/CourtMap';
 
 export class App extends Component {
 
@@ -26,7 +27,30 @@ export class App extends Component {
               </div>
             )} }/>
           <Route path = '/createAccount' component={CreateAccount} />
-          <CourtMapContainer />
+          <Route path='/court/:id' render={({ match }) => {
+            const court = this.props.closeCourts.find( court => {
+              return court.id === parseInt(match.params.id)
+            })
+            return (
+              <div>
+                <CourtCard
+                  name={court.name}
+                  location={court.location}
+                />
+                <CourtMap
+                  coord={court.coords}
+                />
+              </div>
+            )}}
+          />
+          <Route path='/court' render={() => {
+            return (
+              <NavLink to='/' >
+                <button>back</button>
+              </NavLink>
+            )
+            }}
+          />
         </div>
       </div>
     );

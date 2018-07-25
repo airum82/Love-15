@@ -62,7 +62,6 @@ describe('CourtsContainer', () => {
     const mockCourts = [{}, {}];
     mappedProps.handleSubmitCourts(mockCourts);
     expect(mockDispatch).toHaveBeenCalledWith(fetchCourts(mockCourts));
-
   })
 
 })

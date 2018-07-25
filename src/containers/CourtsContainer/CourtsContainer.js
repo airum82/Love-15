@@ -3,27 +3,18 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { CourtCard } from '../../components/CourtCard/CourtCard';
 import { fetchCourts } from '../../actions';
+import { toggleMapKey } from '../../Cleaner/cleaner';
 
 export class CourtsContainer extends Component {
-  makeMapKey = (name) => {
-    const makeMapKey = this.props.closeCourts.map(court => {
-      if(court.name === name) {
-        return {...court, map: true};
-      }
-        return court;
-    });
-    this.props.handleSubmitCourts(makeMapKey);
-  }
 
   makeCourts = () => {
-    let key = 0;
-    return this.props.closeCourts.map(court => {
+    return this.props.closeCourts.map((court, index) => {
       return (
         <CourtCard
           name={court.name}
           location={court.location}
-          makeMapKey={this.makeMapKey}
-          key={key++}
+          key={index}
+          id={index}
         />
       )
     })

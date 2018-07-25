@@ -35,7 +35,7 @@ ShallowWrapper {
                 component={[Function]}
                 path="/createAccount"
         />
-        <Connect(Component) />
+        <Connect(CourtMapContainer) />
 </div>,
       "className": "App",
     },
@@ -61,7 +61,7 @@ ShallowWrapper {
             component={[Function]}
             path="/createAccount"
 />,
-          <Connect(Component) />,
+          <Connect(CourtMapContainer) />,
         ],
         "className": "header-styling",
       },
@@ -152,7 +152,7 @@ ShallowWrapper {
                     component={[Function]}
                     path="/createAccount"
           />
-          <Connect(Component) />
+          <Connect(CourtMapContainer) />
 </div>,
         "className": "App",
       },
@@ -178,7 +178,7 @@ ShallowWrapper {
               component={[Function]}
               path="/createAccount"
 />,
-            <Connect(Component) />,
+            <Connect(CourtMapContainer) />,
           ],
           "className": "header-styling",
         },

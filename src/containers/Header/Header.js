@@ -11,9 +11,14 @@ export const Header = (props) => {
     <div className="header">
       <header>
       {props.account.email ? '' :
-        <NavLink className="log-in-button" to='/logIn'>
-          <button>Log In</button>
-        </NavLink>
+        <div className="log-in-button">
+          <NavLink to='/logIn'>
+            <button>Log In</button>
+          </NavLink>
+          <NavLink to='/createAccount' className="create">
+            <button>Create Account</button>
+          </NavLink>
+        </div>
       }
       {props.account.email ? 
         <div className= "welcome">

@@ -32,6 +32,7 @@
 .create-link {
   font-size: 1.3em;
   color: black;
+  font-weight: 700;
 }
 
 .create-link:hover {

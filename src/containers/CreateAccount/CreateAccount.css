@@ -8,6 +8,10 @@
   margin: 5% auto;
 }
 
+.create-account p {
+  color: #4c4c48;
+}
+
 .create-account button {
   background-color: #60b0f4;
   border: none;

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { logIn } from '../../actions';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import { auth } from '../../firebase';
 import './LogIn.css'
 
 export class LogIn extends Component {
@@ -26,12 +27,15 @@ export class LogIn extends Component {
         <form 
           onChange={this.handleAccountEntry}
           onSubmit={(e) => {
+            auth.doSignInWithEmailAndPassword(
+              this.state.email, this.state.password)
+              .then(userAuth => this.props.handleLogIn(this.state))
+              .then(userData => this.setState({
+                email: '',
+                password: ''
+              }))
+              .catch(error => this.setState({ error : error.message }))
             e.preventDefault();
-            this.props.handleLogIn(this.state);
-            this.setState({
-              email: '',
-              password: ''
-            })
           }}
         >
           <p>Email:</p><input type="email" name="email" value={this.state.email}/>

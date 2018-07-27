@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createAccount } from '../../actions';
-import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import './CreateAccount.css';
+import { auth } from '../../firebase';
 
 export class CreateAccount extends Component {
   constructor(props) {
@@ -22,20 +23,29 @@ export class CreateAccount extends Component {
     })
   }
 
+  resetState = () => {
+    this.setState({
+      name: '',
+      email: '',
+      password: '',
+      dateOfBirth: ''
+    })
+  }
+
   render() {
     return (
       <div className='create-account'>
         <form 
           onChange={this.handleDataEntry}
           onSubmit={(e) => {
+            auth.doCreateUserWithEmailAndPassword(
+              this.state.email,this.state.password)
+              .then(authUser => this.props.handleCreateAccount(this.state))
+              .catch(error => this.setState({ error: error.message }))
+            this.resetState();
             e.preventDefault();
-            this.props.handleCreateAccount(this.state)
-            this.setState({ 
-              name: '',
-              email: '',
-              password: '',
-              dateOfBirth: ''
-            })
+            this.props.history.push('/');
+            console.log(this.state)
           }}
         >
           <p>Email: </p><input type="email" name="email" value={this.state.email} />
@@ -53,4 +63,4 @@ export const mapDispatchToProps = (dispatch) => ({
   handleCreateAccount: (accountInfo) => dispatch(createAccount(accountInfo))
 })
 
-export default connect(null, mapDispatchToProps)(CreateAccount)
+export default withRouter(connect(null, mapDispatchToProps)(CreateAccount));

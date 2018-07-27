@@ -6,13 +6,23 @@
 .create-account form {
   width: 55%;
   margin: 5% auto;
-  grid-row-gap: 10px;
-}
-
-.create-account input {
-  height: 5vh;
 }
 
 .create-account p {
-  text-align: left;
+  color: #4c4c48;
+}
+
+.create-account button {
+  background-color: #60b0f4;
+  border: none;
+  color: white;
+  display: block;
+  margin: 2% auto;
+  height: 5vh;
+  width: 23vw;
+}
+
+.create-account input {
+  height: 4vh;
+  width: 40%;
 }

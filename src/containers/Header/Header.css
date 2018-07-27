@@ -2,14 +2,22 @@
   background-color: #60b0f4;
   color: white; 
   border: none;
-  margin-top: 1%;
-  height: 4vh;
-  width: 6vw; 
+  height: 6vh;
+  text-decoration: none;
+  width: 9vw; 
+}
+
+.log-in-button {
+  display: grid;
+  grid-template-columns: 40% 40%;
+  width: 30%;
+  float: right;
+  margin: 1% 0;
 }
 
 header {
   background-color: #003fff;
-  height: 8vh;
+  height: 9vh;
   position: fixed;
   width: 100%;
 }
@@ -21,12 +29,16 @@ header {
 }
 
 .welcome {
+  margin-top: 1%;
+}
+
+.welcome {
   text-align: left;
 }
 
 .header img {
   height: 30vh;
-  margin-top: 7%;
+  margin-top: 8%;
 }
 
 h3 {

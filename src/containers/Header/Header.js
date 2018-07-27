@@ -4,6 +4,7 @@ import logo from '../../images/Love-15-logo.png';
 import { logOut } from '../../actions';
 import './Header.css';
 import { connect } from 'react-redux';
+import { auth } from '../../firebase';
 
 
 export const Header = (props) => {
@@ -23,7 +24,10 @@ export const Header = (props) => {
       {props.account.email ? 
         <div className= "welcome">
           <p>Welcome {props.account.email}</p>
-          <button onClick={props.handleLogOut}>Log Out</button>
+          <button onClick={() => {
+            auth.doSignOut()
+              .then(signOut => props.handleLogOut())
+            }}>Log Out</button>
         </div> 
       : ''}
       </header>

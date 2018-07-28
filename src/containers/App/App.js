@@ -10,7 +10,7 @@ import LogIn from '../LogIn/LogIn';
 import Header from '../Header/Header';
 import { CourtCard } from '../../components/CourtCard/CourtCard';
 import CourtMap from '../../components/CourtMap/CourtMap';
-import { firebase } from '../../firebase';
+import { firebase, db } from '../../firebase';
 import { fetchAccount } from '../../actions';
 
 export class App extends Component {
@@ -20,6 +20,8 @@ export class App extends Component {
       if(authUser) {
         const { email } = authUser;
         this.props.fetchUser(email);
+        db.onceGetUsers().then(snapshot => 
+        console.log(snapshot.val()))
       }
     });
   }

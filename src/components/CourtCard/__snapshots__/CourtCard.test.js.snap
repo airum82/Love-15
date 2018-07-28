@@ -22,11 +22,9 @@ ShallowWrapper {
         <NavLink
           activeClassName="active"
           aria-current="page"
-          to="/undefined"
+          to="/court/undefined"
 >
-          <p
-                    onClick={[Function]}
-          />
+          <p />
 </NavLink>,
       ],
       "className": "court-card",
@@ -51,10 +49,8 @@ ShallowWrapper {
         "props": Object {
           "activeClassName": "active",
           "aria-current": "page",
-          "children": <p
-            onClick={[Function]}
-/>,
-          "to": "/undefined",
+          "children": <p />,
+          "to": "/court/undefined",
         },
         "ref": null,
         "rendered": Object {
@@ -63,7 +59,6 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": undefined,
-            "onClick": [Function],
           },
           "ref": null,
           "rendered": null,
@@ -85,11 +80,9 @@ ShallowWrapper {
           <NavLink
             activeClassName="active"
             aria-current="page"
-            to="/undefined"
+            to="/court/undefined"
 >
-            <p
-                        onClick={[Function]}
-            />
+            <p />
 </NavLink>,
         ],
         "className": "court-card",
@@ -114,10 +107,8 @@ ShallowWrapper {
           "props": Object {
             "activeClassName": "active",
             "aria-current": "page",
-            "children": <p
-              onClick={[Function]}
-/>,
-            "to": "/undefined",
+            "children": <p />,
+            "to": "/court/undefined",
           },
           "ref": null,
           "rendered": Object {
@@ -126,7 +117,6 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": undefined,
-              "onClick": [Function],
             },
             "ref": null,
             "rendered": null,

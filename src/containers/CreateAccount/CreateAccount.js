@@ -48,7 +48,6 @@ export class CreateAccount extends Component {
             this.resetState();
             e.preventDefault();
             this.props.history.push('/');
-            console.log(this.state)
           }}
         >
           <p>Email: </p><input type="email" name="email" value={this.state.email} />

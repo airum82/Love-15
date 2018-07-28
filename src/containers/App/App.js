@@ -78,5 +78,7 @@ export const mapDispatchToProps = dispatch => ({
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 
 App.propTypes = {
-  closeCourts: PropTypes.array
+  closeCourts: PropTypes.array,
+  account: PropTypes.object,
+  fetchUser: PropTypes.func
 }

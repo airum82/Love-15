@@ -66,3 +66,7 @@ export const mapDispatchToProps = (dispatch) => ({
 })
 
 export default withRouter(connect(null, mapDispatchToProps)(CreateAccount));
+
+CreateAccount.propTypes = {
+  handleCreateAccount: PropTypes.func
+}

@@ -1,10 +1,11 @@
 import React from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from '../../images/Love-15-logo.png';
 import { logOut } from '../../actions';
 import './Header.css';
 import { connect } from 'react-redux';
 import { auth } from '../../firebase';
+import PropTypes from 'prop-types';
 
 
 export const Header = (props) => {
@@ -48,3 +49,8 @@ export const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
+
+Header.propTypes = {
+  account: PropTypes.object,
+  handleLogOut: PropTypes.func
+}

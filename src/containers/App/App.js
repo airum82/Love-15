@@ -10,8 +10,19 @@ import LogIn from '../LogIn/LogIn';
 import Header from '../Header/Header';
 import { CourtCard } from '../../components/CourtCard/CourtCard';
 import CourtMap from '../../components/CourtMap/CourtMap';
+import { firebase } from '../../firebase';
+import { fetchAccount } from '../../actions';
 
 export class App extends Component {
+
+  componentDidMount() {
+    firebase.auth.onAuthStateChanged(authUser => {
+      if(authUser) {
+        const { email } = authUser;
+        this.props.fetchUser(email);
+      }
+    });
+  }
 
   render() {
     return (
@@ -54,10 +65,15 @@ export class App extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  closeCourts: state.closeCourts
+  closeCourts: state.closeCourts,
+  account: state.account
 })
 
-export default withRouter(connect(mapStateToProps, null)(App));
+export const mapDispatchToProps = dispatch => ({
+  fetchUser: user => dispatch(fetchAccount(user))
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 
 App.propTypes = {
   closeCourts: PropTypes.array

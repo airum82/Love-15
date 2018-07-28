@@ -16,3 +16,8 @@ export const logIn = (accountInfo) => ({
 export const logOut = () => ({
   type: 'LOG_OUT',
 })
+
+export const fetchAccount = (accountInfo) => ({
+  type: 'FETCH_ACCOUNT',
+  email: accountInfo
+})

@@ -4,8 +4,8 @@ import { mapsKey, geoKey } from '../../APIkey';
 import { cleanPlaces } from '../../Cleaner/cleaner';
 import { connect } from 'react-redux';
 import { fetchCourts } from '../../actions';
-import './GoogleMap.css';
 import PropTypes from 'prop-types';
+import './GoogleMap.css';
 
 export class MapContainer extends Component {
   constructor(props) {

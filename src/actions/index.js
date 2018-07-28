@@ -21,3 +21,8 @@ export const fetchAccount = (accountInfo) => ({
   type: 'FETCH_ACCOUNT',
   email: accountInfo
 })
+
+export const addFavorite = (court) => ({
+  type: 'ADD_COURT',
+  court
+})

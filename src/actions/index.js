@@ -17,9 +17,10 @@ export const logOut = () => ({
   type: 'LOG_OUT',
 })
 
-export const fetchAccount = (accountInfo) => ({
+export const fetchAccount = (accountInfo, id) => ({
   type: 'FETCH_ACCOUNT',
-  email: accountInfo
+  email: accountInfo,
+  id: id
 })
 
 export const addFavorite = (court) => ({

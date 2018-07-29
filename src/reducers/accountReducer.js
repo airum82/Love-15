@@ -7,7 +7,7 @@ export const accountReducer = (state = {}, action) => {
     case 'LOG_OUT':
       return {};
     case 'FETCH_ACCOUNT':
-      return { email: action.email };
+      return { email: action.email, id: action.id };
     default:
       return state
   }

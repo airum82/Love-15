@@ -19,8 +19,9 @@ export class App extends Component {
   componentDidMount() {
     firebase.auth.onAuthStateChanged(authUser => {
       if(authUser) {
-        const { email } = authUser;
-        this.props.fetchUser(email);
+        const { email, uid } = authUser;
+        console.log(authUser)
+        this.props.fetchUser(email, uid);
         db.onceGetUsers().then(snapshot => 
           Object.keys(snapshot.val())
           .map(user => snapshot.val()[user]))
@@ -77,7 +78,7 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = dispatch => ({
-  fetchUser: user => dispatch(fetchAccount(user)),
+  fetchUser: (user, uid) => dispatch(fetchAccount(user, uid)),
   fetchUserList: userList => dispatch(makeUserList(userList))
 })
 

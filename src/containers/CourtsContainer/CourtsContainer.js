@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { CourtCard } from '../../components/CourtCard/CourtCard';
 import { fetchCourts } from '../../actions';
-import { toggleMapKey } from '../../Cleaner/cleaner';
+import { db } from '../../firebase';
 import './CourtsContainer.css';
+console.log(db.addFavoriteCourt)
 
 export class CourtsContainer extends Component {
 
@@ -16,6 +17,8 @@ export class CourtsContainer extends Component {
           location={court.location}
           key={index}
           id={index}
+          addFavoriteCourt={db.addFavoriteCourt}
+          account={this.props.account}
         />
       )
     })
@@ -38,7 +41,8 @@ export class CourtsContainer extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  closeCourts: state.closeCourts
+  closeCourts: state.closeCourts,
+  account: state.account
 })
 
 export const mapDispatchToProps = (dispatch) => ({

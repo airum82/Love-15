@@ -31,3 +31,7 @@ export const makeUserList = (userList) => ({
   type: 'ADD_USER_LIST',
   userList
 })
+
+export const clearUserList = () => ({
+  type: 'CLEAR_USER_LIST'
+})

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../images/Love-15-logo.png';
-import { logOut } from '../../actions';
+import { logOut, clearUserList } from '../../actions';
 import './Header.css';
 import { connect } from 'react-redux';
 import { auth } from '../../firebase';
@@ -28,6 +28,7 @@ export const Header = (props) => {
           <button onClick={() => {
             auth.doSignOut()
               .then(signOut => props.handleLogOut())
+              .then(signOut => props.clearUserList())
             }}>Log Out</button>
         </div> 
       : ''}
@@ -45,7 +46,8 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  handleLogOut: () => dispatch(logOut())
+  handleLogOut: () => dispatch(logOut()),
+  clearUserList: () => dispatch(clearUserList())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

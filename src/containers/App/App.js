@@ -10,6 +10,7 @@ import LogIn from '../LogIn/LogIn';
 import Header from '../Header/Header';
 import { CourtCard } from '../../components/CourtCard/CourtCard';
 import CourtMap from '../../components/CourtMap/CourtMap';
+import UserList from '../UserList/UserList';
 import { firebase, db } from '../../firebase';
 import { fetchAccount, makeUserList } from '../../actions';
 
@@ -35,6 +36,7 @@ export class App extends Component {
         <div className="header-styling">
           <Header />
           <Route exact path = '/logIn' component={LogIn} />
+          <Route exact path = '/UserList' component={UserList} />
           <Route exact path = '/' render={() => {
             return (
               <div>

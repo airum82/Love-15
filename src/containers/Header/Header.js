@@ -30,6 +30,9 @@ export const Header = (props) => {
               .then(signOut => props.handleLogOut())
               .then(signOut => props.clearUserList())
             }}>Log Out</button>
+            <NavLink to='/UserList'>
+              <button>View Users</button>
+            </NavLink>
         </div> 
       : ''}
       </header>

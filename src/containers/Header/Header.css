@@ -23,13 +23,15 @@ header {
 }
 
 .welcome p {
-  display: inline;
-  margin-right: 1%;
+  margin: 0;
   font-size: 1.3em;
 }
 
 .welcome {
   margin-top: 1%;
+  display: flex;
+  justify-content: space-evenly;
+  width: 68%;
 }
 
 .welcome {

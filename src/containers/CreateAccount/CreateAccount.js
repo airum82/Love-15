@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { createAccount } from '../../actions';
 import { withRouter } from 'react-router-dom';
 import './CreateAccount.css';
-import { auth } from '../../firebase';
+import { auth, db } from '../../firebase';
 
 export class CreateAccount extends Component {
   constructor(props) {
@@ -40,12 +40,14 @@ export class CreateAccount extends Component {
           onSubmit={(e) => {
             auth.doCreateUserWithEmailAndPassword(
               this.state.email,this.state.password)
+              .then(authUser => {
+                db.doCreateUser(authUser.user.uid, this.state.name, this.state.email)
+              })
               .then(authUser => this.props.handleCreateAccount(this.state))
               .catch(error => this.setState({ error: error.message }))
             this.resetState();
             e.preventDefault();
             this.props.history.push('/');
-            console.log(this.state)
           }}
         >
           <p>Email: </p><input type="email" name="email" value={this.state.email} />
@@ -64,3 +66,7 @@ export const mapDispatchToProps = (dispatch) => ({
 })
 
 export default withRouter(connect(null, mapDispatchToProps)(CreateAccount));
+
+CreateAccount.propTypes = {
+  handleCreateAccount: PropTypes.func
+}

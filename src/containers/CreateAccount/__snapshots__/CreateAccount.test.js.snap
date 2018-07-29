@@ -4,7 +4,13 @@ exports[`CreateAccount should match snapshot upon initial render 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <CreateAccount />,
+  Symbol(enzyme.__unrendered__): <CreateAccount
+    history={
+        Object {
+            "push": [Function],
+          }
+    }
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -21,21 +27,37 @@ ShallowWrapper {
         onChange={[Function]}
         onSubmit={[Function]}
 >
+        <p>
+                Email: 
+        </p>
         <input
                 name="email"
                 type="email"
+                value=""
         />
+        <p>
+                Name: 
+        </p>
         <input
                 name="name"
                 type="text"
+                value=""
         />
+        <p>
+                Passworld: 
+        </p>
         <input
                 name="password"
                 type="password"
+                value=""
         />
+        <p>
+                DOB: 
+        </p>
         <input
                 name="dateOfBirth"
                 type="text"
+                value=""
         />
         <button>
                 Create Account
@@ -50,21 +72,37 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          <p>
+            Email: 
+</p>,
           <input
             name="email"
             type="email"
+            value=""
 />,
+          <p>
+            Name: 
+</p>,
           <input
             name="name"
             type="text"
+            value=""
 />,
+          <p>
+            Passworld: 
+</p>,
           <input
             name="password"
             type="password"
+            value=""
 />,
+          <p>
+            DOB: 
+</p>,
           <input
             name="dateOfBirth"
             type="text"
+            value=""
 />,
           <button>
             Create Account
@@ -80,12 +118,35 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "children": "Email: ",
+          },
+          "ref": null,
+          "rendered": "Email: ",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
             "name": "email",
             "type": "email",
+            "value": "",
           },
           "ref": null,
           "rendered": null,
           "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Name: ",
+          },
+          "ref": null,
+          "rendered": "Name: ",
+          "type": "p",
         },
         Object {
           "instance": null,
@@ -94,10 +155,22 @@ ShallowWrapper {
           "props": Object {
             "name": "name",
             "type": "text",
+            "value": "",
           },
           "ref": null,
           "rendered": null,
           "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Passworld: ",
+          },
+          "ref": null,
+          "rendered": "Passworld: ",
+          "type": "p",
         },
         Object {
           "instance": null,
@@ -106,6 +179,7 @@ ShallowWrapper {
           "props": Object {
             "name": "password",
             "type": "password",
+            "value": "",
           },
           "ref": null,
           "rendered": null,
@@ -116,8 +190,20 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "children": "DOB: ",
+          },
+          "ref": null,
+          "rendered": "DOB: ",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
             "name": "dateOfBirth",
             "type": "text",
+            "value": "",
           },
           "ref": null,
           "rendered": null,
@@ -149,21 +235,37 @@ ShallowWrapper {
           onChange={[Function]}
           onSubmit={[Function]}
 >
+          <p>
+                    Email: 
+          </p>
           <input
                     name="email"
                     type="email"
+                    value=""
           />
+          <p>
+                    Name: 
+          </p>
           <input
                     name="name"
                     type="text"
+                    value=""
           />
+          <p>
+                    Passworld: 
+          </p>
           <input
                     name="password"
                     type="password"
+                    value=""
           />
+          <p>
+                    DOB: 
+          </p>
           <input
                     name="dateOfBirth"
                     type="text"
+                    value=""
           />
           <button>
                     Create Account
@@ -178,21 +280,37 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
+            <p>
+              Email: 
+</p>,
             <input
               name="email"
               type="email"
+              value=""
 />,
+            <p>
+              Name: 
+</p>,
             <input
               name="name"
               type="text"
+              value=""
 />,
+            <p>
+              Passworld: 
+</p>,
             <input
               name="password"
               type="password"
+              value=""
 />,
+            <p>
+              DOB: 
+</p>,
             <input
               name="dateOfBirth"
               type="text"
+              value=""
 />,
             <button>
               Create Account
@@ -208,12 +326,35 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "children": "Email: ",
+            },
+            "ref": null,
+            "rendered": "Email: ",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
               "name": "email",
               "type": "email",
+              "value": "",
             },
             "ref": null,
             "rendered": null,
             "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Name: ",
+            },
+            "ref": null,
+            "rendered": "Name: ",
+            "type": "p",
           },
           Object {
             "instance": null,
@@ -222,10 +363,22 @@ ShallowWrapper {
             "props": Object {
               "name": "name",
               "type": "text",
+              "value": "",
             },
             "ref": null,
             "rendered": null,
             "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Passworld: ",
+            },
+            "ref": null,
+            "rendered": "Passworld: ",
+            "type": "p",
           },
           Object {
             "instance": null,
@@ -234,6 +387,7 @@ ShallowWrapper {
             "props": Object {
               "name": "password",
               "type": "password",
+              "value": "",
             },
             "ref": null,
             "rendered": null,
@@ -244,8 +398,20 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "children": "DOB: ",
+            },
+            "ref": null,
+            "rendered": "DOB: ",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
               "name": "dateOfBirth",
               "type": "text",
+              "value": "",
             },
             "ref": null,
             "rendered": null,

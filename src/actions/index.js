@@ -21,3 +21,17 @@ export const fetchAccount = (accountInfo) => ({
   type: 'FETCH_ACCOUNT',
   email: accountInfo
 })
+
+export const addFavorite = (court) => ({
+  type: 'ADD_COURT',
+  court
+})
+
+export const makeUserList = (userList) => ({
+  type: 'ADD_USER_LIST',
+  userList
+})
+
+export const clearUserList = () => ({
+  type: 'CLEAR_USER_LIST'
+})

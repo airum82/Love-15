@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { logIn } from '../../actions';
+import { logIn, makeUserList } from '../../actions';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { auth } from '../../firebase';
+import { auth, db } from '../../firebase';
 import './LogIn.css'
 
 export class LogIn extends Component {
@@ -30,6 +30,11 @@ export class LogIn extends Component {
             auth.doSignInWithEmailAndPassword(
               this.state.email, this.state.password)
               .then(userAuth => this.props.handleLogIn(this.state))
+              .then(userAuth => db.onceGetUsers().then(snapshot =>
+                Object.keys(snapshot.val())
+                  .map(user => snapshot.val()[user]))
+                .then(userList =>
+                  this.props.fetchUserList(userList)))
               .then(userData => this.setState({
                 email: '',
                 password: ''
@@ -51,7 +56,8 @@ export class LogIn extends Component {
 }
 
 export const mapDispatchToProps = (dispatch) => ({
-  handleLogIn: (accountInfo) => dispatch(logIn(accountInfo))
+  handleLogIn: (accountInfo) => dispatch(logIn(accountInfo)),
+  fetchUserList: (userList) => dispatch(makeUserList(userList))
 })
 
 export default connect(null, mapDispatchToProps)(LogIn);

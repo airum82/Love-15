@@ -10,8 +10,8 @@ import LogIn from '../LogIn/LogIn';
 import Header from '../Header/Header';
 import { CourtCard } from '../../components/CourtCard/CourtCard';
 import CourtMap from '../../components/CourtMap/CourtMap';
-import { firebase } from '../../firebase';
-import { fetchAccount } from '../../actions';
+import { firebase, db } from '../../firebase';
+import { fetchAccount, makeUserList } from '../../actions';
 
 export class App extends Component {
 
@@ -20,6 +20,11 @@ export class App extends Component {
       if(authUser) {
         const { email } = authUser;
         this.props.fetchUser(email);
+        db.onceGetUsers().then(snapshot => 
+          Object.keys(snapshot.val())
+          .map(user => snapshot.val()[user]))
+          .then(userList => 
+            this.props.fetchUserList(userList))
       }
     });
   }
@@ -70,11 +75,14 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = dispatch => ({
-  fetchUser: user => dispatch(fetchAccount(user))
+  fetchUser: user => dispatch(fetchAccount(user)),
+  fetchUserList: userList => dispatch(makeUserList(userList))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 
 App.propTypes = {
-  closeCourts: PropTypes.array
+  closeCourts: PropTypes.array,
+  account: PropTypes.object,
+  fetchUser: PropTypes.func
 }

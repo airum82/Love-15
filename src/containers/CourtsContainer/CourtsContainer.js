@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { CourtCard } from '../../components/CourtCard/CourtCard';
-import { fetchCourts } from '../../actions';
+import { fetchCourts, makeFavoritesList } from '../../actions';
 import { db } from '../../firebase';
 import './CourtsContainer.css';
 console.log(db.addFavoriteCourt)
@@ -18,10 +18,30 @@ export class CourtsContainer extends Component {
           key={index}
           id={index}
           addFavoriteCourt={db.addFavoriteCourt}
+          removeFromFavorites={db.removeFavoriteFromList}
           account={this.props.account}
+          isFavorite={this.isFavorite}
+          favorites={this.props.favorites}
+          updateReduxFavorites={this.updateReduxFavorites}
+          handleFavorite={this.props.handleFavorite}
+          db={db}
         />
       )
     })
+  }
+
+  updateReduxFavorites = (court) => {
+    if(this.isFavorite(court.name)) {
+      return this.props.favorites
+        .filter(favorite => favorite.name !== court.name);
+    } else {
+      return [...this.props.favorites, court];
+    }
+  }
+
+  isFavorite = (name) => {
+    return this.props.favorites
+      .find(court => court.name === name)
   }
 
   render() {
@@ -42,11 +62,13 @@ export class CourtsContainer extends Component {
 
 export const mapStateToProps = (state) => ({
   closeCourts: state.closeCourts,
-  account: state.account
+  account: state.account,
+  favorites: state.favorites
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  handleSubmitCourts: (courts) => dispatch(fetchCourts(courts))
+  handleSubmitCourts: (courts) => dispatch(fetchCourts(courts)),
+  handleFavorite : courts => dispatch(makeFavoritesList(courts))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CourtsContainer)

@@ -16,3 +16,7 @@ export const addFavoriteCourt = (id, court) => {
 export const grabFavoriteCourtsList = (id) => {
   return db.ref(`users/${id}/favorites`).once('value')
 }
+
+export const removeFavoriteFromList = (userId, courtId) => {
+  db.ref(`users/${userId}/favorites/${courtId}`).remove()
+}

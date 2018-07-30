@@ -32,7 +32,7 @@ export class LogIn extends Component {
               .then(userAuth => db.grabFavoriteCourtsList(userAuth.user.uid))
               .then(snapshot => snapshot.val())
               .then(courts => Object.keys(courts).map(key => 
-                courts[key]))
+                ({key, ...courts[key]})))
               .then(courtList => this.props.fetchFavoritesList(courtList))
               .then(userAuth => this.props.handleLogIn(this.state))
               .then(userAuth => db.onceGetUsers().then(snapshot =>

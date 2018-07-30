@@ -17,6 +17,7 @@ export class CourtsContainer extends Component {
           location={court.location}
           key={index}
           id={index}
+          court={court}
           addFavoriteCourt={db.addFavoriteCourt}
           removeFromFavorites={db.removeFavoriteFromList}
           account={this.props.account}
@@ -44,7 +45,6 @@ export class CourtsContainer extends Component {
   }
 
   render() {
-    console.log(this.props.location)
     if(this.props.closeCourts.length && this.props.location.pathname === '/') {
       return (
         <div className="courts-container">
@@ -57,6 +57,12 @@ export class CourtsContainer extends Component {
             {this.makeCourts(this.props.favorites)}
           </div>
         )
+    } else if (this.props.location.pathname.includes('/court')) {
+      return (
+        <div>
+          {this.makeCourts(this.props.selectedCourt)}
+        </div>
+      )
     } else {
       return (
         <div className="courts-container">

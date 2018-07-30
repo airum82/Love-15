@@ -6,6 +6,7 @@ export const CourtCard = (
   {name, 
    location,
    id,
+   court,
    addFavoriteCourt,
    account,
    removeFromFavorites,
@@ -13,10 +14,7 @@ export const CourtCard = (
    handleFavorite,
    db }
 ) => {
-  const court = {
-    name,
-    location
-  }
+
   return (
     <div className="court-card">
       <h2>{name}</h2>

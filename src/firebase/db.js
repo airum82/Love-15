@@ -20,3 +20,8 @@ export const grabFavoriteCourtsList = (id) => {
 export const removeFavoriteFromList = (userId, courtId) => {
   db.ref(`users/${userId}/favorites/${courtId}`).remove()
 }
+
+export const checkForFavorites = (id) => {
+  return db.ref(`users/${id}/favorites`).once('value')
+    .then(snapshot => snapshot.exists())
+}

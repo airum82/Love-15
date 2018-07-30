@@ -21,18 +21,24 @@ export class App extends Component {
       if(authUser) {
         const { email, uid } = authUser;
         this.props.fetchUser(email, uid);
-        db.grabFavoriteCourtsList(uid)
-          .then(snapshot => snapshot.val())
-          .then(courts => Object.keys(courts).map(key =>
-            ({ key, ...courts[key] })))
-          .then(courtList => this.props.fetchFavoriteCourtList(courtList))
+        db.checkForFavorites(uid)
+          .then(result => {
+            if(result) {
+              db.grabFavoriteCourtsList(uid)
+                .then(snapshot => snapshot.val())
+                .then(courts => Object.keys(courts).map(key =>
+                  ({ key, ...courts[key] })))
+                .then(courtList => this.props.fetchFavoriteCourtList(courtList))
+              }
+            });
+        }
         db.onceGetUsers().then(snapshot => 
           Object.keys(snapshot.val())
           .map(user => snapshot.val()[user]))
           .then(userList => 
             this.props.fetchUserList(userList))
       }
-    });
+    );
   }
 
   render() {
@@ -54,14 +60,12 @@ export class App extends Component {
           <Route path='/court/:id' render={({ match }) => {
             const court = this.props.closeCourts.find( court => {
               return court.id === parseInt(match.params.id)
+            }) || this.props.favorites.find( court => {
+              return court.id === parseInt(match.params.id)
             })
             return (
               <div className="court-with-map">
-                <CourtCard
-                  name={court.name}
-                  location={court.location}
-                  id={court.id}
-                />
+                <CourtsContainer selectedCourt={[court]} />
                 <NavLink to='/' >
                   <button className="back-button">back</button>
                 </NavLink>

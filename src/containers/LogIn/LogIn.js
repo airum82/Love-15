@@ -76,17 +76,13 @@ export class LogIn extends Component {
   }
 }
 
-export const mapStateToProps = (state) => ({
-  accountId: state.account.id
-})
-
 export const mapDispatchToProps = (dispatch) => ({
   handleLogIn: (accountInfo, id) => dispatch(logIn(accountInfo, id)),
   fetchUserList: (userList) => dispatch(makeUserList(userList)),
   fetchFavoritesList: (courtList) => dispatch(makeFavoritesList(courtList))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
+export default connect(null, mapDispatchToProps)(LogIn);
 
 LogIn.propTypes = {
   handleLogIn: PropTypes.func

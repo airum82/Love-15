@@ -12,7 +12,7 @@ import { CourtCard } from '../../components/CourtCard/CourtCard';
 import CourtMap from '../../components/CourtMap/CourtMap';
 import UserList from '../UserList/UserList';
 import { firebase, db } from '../../firebase';
-import { fetchAccount, makeUserList } from '../../actions';
+import { fetchAccount, makeUserList, makeFavoritesList } from '../../actions';
 
 export class App extends Component {
 
@@ -20,8 +20,12 @@ export class App extends Component {
     firebase.auth.onAuthStateChanged(authUser => {
       if(authUser) {
         const { email, uid } = authUser;
-        console.log(authUser)
         this.props.fetchUser(email, uid);
+        db.grabFavoriteCourtsList(uid)
+          .then(snapshot => snapshot.val())
+          .then(courts => Object.keys(courts).map(key =>
+            ({ key, ...courts[key] })))
+          .then(courtList => this.props.fetchFavoriteCourtList(courtList))
         db.onceGetUsers().then(snapshot => 
           Object.keys(snapshot.val())
           .map(user => snapshot.val()[user]))
@@ -79,7 +83,8 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = dispatch => ({
   fetchUser: (user, uid) => dispatch(fetchAccount(user, uid)),
-  fetchUserList: userList => dispatch(makeUserList(userList))
+  fetchUserList: userList => dispatch(makeUserList(userList)),
+  fetchFavoriteCourtList: courtList => dispatch(makeFavoritesList(courtList))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

@@ -36,3 +36,8 @@ export const makeUserList = (userList) => ({
 export const clearUserList = () => ({
   type: 'CLEAR_USER_LIST'
 })
+
+export const makeFavoritesList = (courtList) => ({
+  type: 'GRAB_FAVORITES',
+  courtList
+})

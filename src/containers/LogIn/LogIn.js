@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { logIn, makeUserList } from '../../actions';
+import { logIn, makeUserList, makeFavoritesList } from '../../actions';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { auth, db } from '../../firebase';
@@ -29,6 +29,11 @@ export class LogIn extends Component {
           onSubmit={(e) => {
             auth.doSignInWithEmailAndPassword(
               this.state.email, this.state.password)
+              .then(userAuth => db.grabFavoriteCourtsList(userAuth.user.uid))
+              .then(snapshot => snapshot.val())
+              .then(courts => Object.keys(courts).map(key => 
+                courts[key]))
+              .then(courtList => this.props.fetchFavoritesList(courtList))
               .then(userAuth => this.props.handleLogIn(this.state))
               .then(userAuth => db.onceGetUsers().then(snapshot =>
                 Object.keys(snapshot.val())
@@ -57,7 +62,8 @@ export class LogIn extends Component {
 
 export const mapDispatchToProps = (dispatch) => ({
   handleLogIn: (accountInfo) => dispatch(logIn(accountInfo)),
-  fetchUserList: (userList) => dispatch(makeUserList(userList))
+  fetchUserList: (userList) => dispatch(makeUserList(userList)),
+  fetchFavoritesList: (courtList) => dispatch(makeFavoritesList(courtList))
 })
 
 export default connect(null, mapDispatchToProps)(LogIn);

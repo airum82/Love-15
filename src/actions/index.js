@@ -42,3 +42,7 @@ export const makeFavoritesList = (courtList) => ({
   type: 'GRAB_FAVORITES',
   courtList
 })
+
+export const clearFavorites = () => ({
+  type: 'CLEAR_FAVORITES',
+})

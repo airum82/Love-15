@@ -3,7 +3,9 @@ export const favoriteReducer = (state = [], action) => {
     case 'ADD_COURT':
       return [...state, action.court];
     case 'GRAB_FAVORITES':
-      return action.courtList
+      return action.courtList;
+    case 'CLEAR_FAVORITES':
+      return [];
     default:
       return state
   }

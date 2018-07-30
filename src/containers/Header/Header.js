@@ -1,7 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import logo from '../../images/Love-15-logo.png';
-import { logOut, clearUserList } from '../../actions';
+import { logOut, clearUserList, makeFavoritesList, clearFavorites } from '../../actions';
 import './Header.css';
 import { connect } from 'react-redux';
 import { auth } from '../../firebase';
@@ -29,6 +29,8 @@ export const Header = (props) => {
             auth.doSignOut()
               .then(signOut => props.handleLogOut())
               .then(signOut => props.clearUserList())
+              .then(signOut => props.clearFavorites())
+              props.history.push('/')
             }}>Log Out</button>
             <NavLink to='/UserList'>
               <button>View Users</button>
@@ -53,10 +55,11 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   handleLogOut: () => dispatch(logOut()),
-  clearUserList: () => dispatch(clearUserList())
+  clearUserList: () => dispatch(clearUserList()),
+  clearFavorites: () => dispatch(clearFavorites())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
 
 Header.propTypes = {
   account: PropTypes.object,

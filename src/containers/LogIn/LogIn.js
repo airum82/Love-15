@@ -21,31 +21,47 @@ export class LogIn extends Component {
     })
   }
 
+  signIn = () => {
+    return auth.doSignInWithEmailAndPassword(
+      this.state.email, this.state.password)
+      .then(userAuth => this.props.handleLogIn(this.state.email, userAuth.user.uid))
+  }
+
+  grabFavoriteCourts = (id) => {
+    db.grabFavoriteCourtsList(id)
+      .then(snapshot => snapshot.val())
+      .then(courts => Object.keys(courts).map(key =>
+        ({ key, ...courts[key] })))
+      .then(courtList => this.props.fetchFavoritesList(courtList))
+  }
+
+  retrieveUsers = () => {
+    db.onceGetUsers().then(snapshot =>
+      Object.keys(snapshot.val())
+        .map(user => snapshot.val()[user]))
+      .then(userList =>
+        this.props.fetchUserList(userList))
+  }
+
   render() {
     return (
       <div className="log-in">
         <form 
           onChange={this.handleAccountEntry}
-          onSubmit={(e) => {
-            auth.doSignInWithEmailAndPassword(
-              this.state.email, this.state.password)
-              .then(userAuth => db.grabFavoriteCourtsList(userAuth.user.uid))
-              .then(snapshot => snapshot.val())
-              .then(courts => Object.keys(courts).map(key => 
-                ({key, ...courts[key]})))
-              .then(courtList => this.props.fetchFavoritesList(courtList))
-              .then(userAuth => this.props.handleLogIn(this.state))
-              .then(userAuth => db.onceGetUsers().then(snapshot =>
-                Object.keys(snapshot.val())
-                  .map(user => snapshot.val()[user]))
-                .then(userList =>
-                  this.props.fetchUserList(userList)))
-              .then(userData => this.setState({
-                email: '',
-                password: ''
-              }))
-              .catch(error => this.setState({ error : error.message }))
+          onSubmit={async (e) => {
             e.preventDefault();
+            try {
+              await this.signIn()
+              .then(user => this.grabFavoriteCourts(user.id));
+              await this.retrieveUsers();
+              this.setState({
+                  email: '',
+                  password: ''
+                })
+            }
+            catch(error) {
+              this.setState({ error: error.message });
+            }
           }}
         >
           <p>Email:</p><input type="email" name="email" value={this.state.email}/>
@@ -60,13 +76,17 @@ export class LogIn extends Component {
   }
 }
 
+export const mapStateToProps = (state) => ({
+  accountId: state.account.id
+})
+
 export const mapDispatchToProps = (dispatch) => ({
-  handleLogIn: (accountInfo) => dispatch(logIn(accountInfo)),
+  handleLogIn: (accountInfo, id) => dispatch(logIn(accountInfo, id)),
   fetchUserList: (userList) => dispatch(makeUserList(userList)),
   fetchFavoritesList: (courtList) => dispatch(makeFavoritesList(courtList))
 })
 
-export default connect(null, mapDispatchToProps)(LogIn);
+export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
 
 LogIn.propTypes = {
   handleLogIn: PropTypes.func

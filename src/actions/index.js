@@ -8,9 +8,10 @@ export const createAccount = (accountInfo) => ({
   accountInfo
 })
 
-export const logIn = (accountInfo) => ({
+export const logIn = (email, id) => ({
   type: 'LOG_IN',
-  accountInfo
+  email,
+  id,
 })
 
 export const logOut = () => ({

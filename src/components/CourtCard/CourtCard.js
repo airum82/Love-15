@@ -10,7 +10,6 @@ export const CourtCard = (
    account,
    removeFromFavorites,
    isFavorite,
-   updateReduxFavorites,
    handleFavorite,
    db }
 ) => {

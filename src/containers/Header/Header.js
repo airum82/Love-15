@@ -33,6 +33,9 @@ export const Header = (props) => {
             <NavLink to='/UserList'>
               <button>View Users</button>
             </NavLink>
+            <NavLink to='/favorites'>
+              <button>View Favorites</button>
+            </NavLink>
         </div> 
       : ''}
       </header>

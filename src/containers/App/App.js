@@ -50,6 +50,7 @@ export class App extends Component {
               </div>
             )} }/>
           <Route path = '/createAccount' component={CreateAccount} />
+          <Route path = '/favorites' component={CourtsContainer} />
           <Route path='/court/:id' render={({ match }) => {
             const court = this.props.closeCourts.find( court => {
               return court.id === parseInt(match.params.id)
@@ -78,7 +79,8 @@ export class App extends Component {
 
 export const mapStateToProps = (state) => ({
   closeCourts: state.closeCourts,
-  account: state.account
+  account: state.account,
+  favorites: state.favorites
 })
 
 export const mapDispatchToProps = dispatch => ({

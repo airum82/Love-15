@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import { CourtCard } from '../../components/CourtCard/CourtCard';
 import { fetchCourts, makeFavoritesList } from '../../actions';
 import { db } from '../../firebase';
+import { withRouter } from 'react-router-dom'
 import './CourtsContainer.css';
-console.log(db.addFavoriteCourt)
 
 export class CourtsContainer extends Component {
 
-  makeCourts = () => {
-    return this.props.closeCourts.map((court, index) => {
+  makeCourts = (courts) => {
+    return courts.map((court, index) => {
       return (
         <CourtCard
           name={court.name}
@@ -22,7 +22,6 @@ export class CourtsContainer extends Component {
           account={this.props.account}
           isFavorite={this.isFavorite}
           favorites={this.props.favorites}
-          updateReduxFavorites={this.updateReduxFavorites}
           handleFavorite={this.props.handleFavorite}
           db={db}
         />
@@ -45,12 +44,19 @@ export class CourtsContainer extends Component {
   }
 
   render() {
-    if(this.props.closeCourts.length) {
+    console.log(this.props.location)
+    if(this.props.closeCourts.length && this.props.location.pathname === '/') {
       return (
         <div className="courts-container">
-          {this.makeCourts()}
+          {this.makeCourts(this.props.closeCourts)}
         </div>
       )
+    } else if(this.props.location.pathname === '/favorites') {
+        return (
+          <div className="courts-container">
+            {this.makeCourts(this.props.favorites)}
+          </div>
+        )
     } else {
       return (
         <div className="courts-container">
@@ -71,7 +77,7 @@ export const mapDispatchToProps = (dispatch) => ({
   handleFavorite : courts => dispatch(makeFavoritesList(courts))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(CourtsContainer)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CourtsContainer))
 
 CourtsContainer.propTypes = {
   closeCourts: PropTypes.array,

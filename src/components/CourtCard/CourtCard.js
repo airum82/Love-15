@@ -16,25 +16,29 @@ export const CourtCard = (
 ) => {
 
   return (
-    <NavLink to={`/court/${id}`} className="map-link">
-      <div className="court-card">
+    <div className="court-card">
+      <NavLink to={`/court/${id}`} className="map-link">
         <h2>{name}</h2>
         <p>{location}</p>
-        <button onClick={() => {
-          const favorite = isFavorite(name);
-          favorite ? removeFromFavorites(account.id, favorite.key) :
-            addFavoriteCourt(account.id, court);
-          db.grabFavoriteCourtsList(account.id)
-            .then(courtsList => courtsList.val())
-            .then(courtsList => Object.keys(courtsList)
-              .map(key => ({ key, ...courtsList[key] })))
-            .then(favoritesList => handleFavorite(favoritesList))
-        }}>{
-            isFavorite(name) ? 'remove from favorites' :
-              'add to favorites'
-          }
-        </button>
-      </div>
-    </NavLink>
+      </NavLink>
+      <button onClick={() => {
+        const favorite = isFavorite(name);
+        favorite ? removeFromFavorites(account.id, favorite.key) :
+          addFavoriteCourt(account.id, court);
+        db.grabFavoriteCourtsList(account.id)
+          .then(courtsList => courtsList.val())
+          .then(courtsList => {
+            if(courtsList) {
+              return Object.keys(courtsList).map(key => (
+                { key, ...courtsList[key] }))
+              }
+            })
+          .then(favoritesList => handleFavorite(favoritesList))
+      }}>{
+          isFavorite(name) ? 'remove from favorites' :
+            'add to favorites'
+        }
+      </button>
+    </div>
   )
 }

@@ -57,7 +57,7 @@ export class App extends Component {
             )} }/>
           <Route path = '/createAccount' component={CreateAccount} />
           <Route path = '/favorites' component={CourtsContainer} />
-          <Route path='/court/:id' render={({ match, history }) => {
+          <Route path='/court/:id' render={({ match }) => {
             const court = this.props.closeCourts.find( court => {
               return court.id === parseInt(match.params.id)
             }) || this.props.favorites.find( court => {
@@ -66,9 +66,6 @@ export class App extends Component {
             return (
               <div className="court-with-map">
                 <CourtsContainer selectedCourt={[court]} />
-                  <button className="back-button" onClick={this.props.history.goBack}>
-                    back
-                  </button>
                 <CourtMap
                   coord={court.coord}
                 />

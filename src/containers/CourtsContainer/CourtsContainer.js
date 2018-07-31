@@ -59,8 +59,11 @@ export class CourtsContainer extends Component {
         )
     } else if (this.props.location.pathname.includes('/court')) {
       return (
-        <div>
+        <div className="single-card">
           {this.makeCourts(this.props.selectedCourt)}
+          <button className="back-button" onClick={this.props.history.goBack}>
+            back
+          </button>
         </div>
       )
     } else {

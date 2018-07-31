@@ -3,7 +3,6 @@ export const cleanPlaces = (places) => {
     return {
       id: index,
       name: place.name,
-      hours: place.opening_hours,
       rating: place.rating,
       location: place.vicinity,
       coord: {

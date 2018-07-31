@@ -30,15 +30,6 @@ export class CourtsContainer extends Component {
     })
   }
 
-  updateReduxFavorites = (court) => {
-    if(this.isFavorite(court.name)) {
-      return this.props.favorites
-        .filter(favorite => favorite.name !== court.name);
-    } else {
-      return [...this.props.favorites, court];
-    }
-  }
-
   isFavorite = (name) => {
     return this.props.favorites
       .find(court => court.name === name)

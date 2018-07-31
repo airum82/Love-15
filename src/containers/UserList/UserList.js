@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { UserCard } from '../../components/UserCard/UserCard';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 export class UserList extends Component {
   
@@ -30,3 +31,7 @@ export const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps)(UserList);
+
+UserList.propTypes = {
+  userList: PropTypes.array
+}

@@ -25,7 +25,7 @@ export const Header = (props) => {
       {props.account.email ? 
         <div className= "welcome">
           <p>Welcome {props.account.email}</p>
-          <button onClick={() => {
+          <button className="log-out" onClick={() => {
             auth.doSignOut()
               .then(signOut => props.handleLogOut())
               .then(signOut => props.clearUserList())
@@ -63,5 +63,7 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
 
 Header.propTypes = {
   account: PropTypes.object,
-  handleLogOut: PropTypes.func
+  handleLogOut: PropTypes.func,
+  clearUserList: PropTypes.func,
+  clearFavorites: PropTypes.func
 }

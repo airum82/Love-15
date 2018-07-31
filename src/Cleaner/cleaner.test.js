@@ -7,26 +7,46 @@ describe('cleanPlaces', () => {
         name: 'court',
         opening_hours: '5',
         rating: 5,
-        vicinity: '1800 s broadway'
+        vicinity: '1800 s broadway',
+        geometry: {
+          location: {
+            lat: jest.fn().mockImplementation(() => 5.483),
+            lng: jest.fn().mockImplementation(() => 5.483)
+          }
+        }
       }, 
       {
         name: 'court',
         opening_hours: '5',
         rating: 5,
-        vicinity: '1800 s broadway'
+        vicinity: '1800 s broadway',
+        geometry: {
+          location: {
+            lat: jest.fn().mockImplementation(() => 5.483),
+            lng: jest.fn().mockImplementation(() => 5.483)
+          }
+        }
       }];
       const expected = [
         {
           name: 'court',
-          hours: '5',
+          id: 0,
           rating: 5,
-          location: '1800 s broadway'
+          location: '1800 s broadway',
+          coord: {
+            lat: 5.483,
+            lng: 5.483
+          }
         },
         {
           name: 'court',
-          hours: '5',
+          id: 1,
           rating: 5,
-          location: '1800 s broadway'
+          location: '1800 s broadway',
+          coord: {
+            lat: 5.483,
+            lng: 5.483
+          }
         }
       ]
       const result = cleanPlaces(mockPlaces);

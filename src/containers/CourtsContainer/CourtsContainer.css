@@ -6,3 +6,12 @@
   margin-top: 5%;
 }
 
+.single-card {
+  background-color: rgba(229, 149, 0, 1);
+  width: 80%;
+  margin: 0 auto
+}
+
+.single-card p {
+  display: block;
+}

@@ -1,5 +1,5 @@
 export const accountReducer = (state = {}, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case 'CREATE_ACCOUNT':
       return {...action.accountInfo};
     case 'LOG_IN':
@@ -7,8 +7,8 @@ export const accountReducer = (state = {}, action) => {
     case 'LOG_OUT':
       return {};
     case 'FETCH_ACCOUNT':
-      return { email: action.email };
+      return { email: action.email, id: action.id };
     default:
-      return state
+      return state;
   }
-}
+};

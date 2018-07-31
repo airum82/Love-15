@@ -20,11 +20,16 @@ ShallowWrapper {
       "children": <div
         className="header-styling"
 >
-        <Connect(Component) />
+        <withRouter(Connect(Component)) />
         <Route
                 component={[Function]}
                 exact={true}
                 path="/logIn"
+        />
+        <Route
+                component={[Function]}
+                exact={true}
+                path="/UserList"
         />
         <Route
                 exact={true}
@@ -34,6 +39,10 @@ ShallowWrapper {
         <Route
                 component={[Function]}
                 path="/createAccount"
+        />
+        <Route
+                component={[Function]}
+                path="/favorites"
         />
         <Route
                 path="/court/:id"
@@ -49,11 +58,16 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Connect(Component) />,
+          <withRouter(Connect(Component)) />,
           <Route
             component={[Function]}
             exact={true}
             path="/logIn"
+/>,
+          <Route
+            component={[Function]}
+            exact={true}
+            path="/UserList"
 />,
           <Route
             exact={true}
@@ -63,6 +77,10 @@ ShallowWrapper {
           <Route
             component={[Function]}
             path="/createAccount"
+/>,
+          <Route
+            component={[Function]}
+            path="/favorites"
 />,
           <Route
             path="/court/:id"
@@ -76,7 +94,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {},
           "ref": null,
           "rendered": null,
@@ -90,6 +108,19 @@ ShallowWrapper {
             "component": [Function],
             "exact": true,
             "path": "/logIn",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "component": [Function],
+            "exact": true,
+            "path": "/UserList",
           },
           "ref": null,
           "rendered": null,
@@ -125,6 +156,18 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
+            "component": [Function],
+            "path": "/favorites",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
             "path": "/court/:id",
             "render": [Function],
           },
@@ -146,11 +189,16 @@ ShallowWrapper {
         "children": <div
           className="header-styling"
 >
-          <Connect(Component) />
+          <withRouter(Connect(Component)) />
           <Route
                     component={[Function]}
                     exact={true}
                     path="/logIn"
+          />
+          <Route
+                    component={[Function]}
+                    exact={true}
+                    path="/UserList"
           />
           <Route
                     exact={true}
@@ -160,6 +208,10 @@ ShallowWrapper {
           <Route
                     component={[Function]}
                     path="/createAccount"
+          />
+          <Route
+                    component={[Function]}
+                    path="/favorites"
           />
           <Route
                     path="/court/:id"
@@ -175,11 +227,16 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <Connect(Component) />,
+            <withRouter(Connect(Component)) />,
             <Route
               component={[Function]}
               exact={true}
               path="/logIn"
+/>,
+            <Route
+              component={[Function]}
+              exact={true}
+              path="/UserList"
 />,
             <Route
               exact={true}
@@ -189,6 +246,10 @@ ShallowWrapper {
             <Route
               component={[Function]}
               path="/createAccount"
+/>,
+            <Route
+              component={[Function]}
+              path="/favorites"
 />,
             <Route
               path="/court/:id"
@@ -202,7 +263,7 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "class",
+            "nodeType": "function",
             "props": Object {},
             "ref": null,
             "rendered": null,
@@ -216,6 +277,19 @@ ShallowWrapper {
               "component": [Function],
               "exact": true,
               "path": "/logIn",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "component": [Function],
+              "exact": true,
+              "path": "/UserList",
             },
             "ref": null,
             "rendered": null,
@@ -241,6 +315,18 @@ ShallowWrapper {
             "props": Object {
               "component": [Function],
               "path": "/createAccount",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "component": [Function],
+              "path": "/favorites",
             },
             "ref": null,
             "rendered": null,

@@ -1,6 +1,7 @@
 import { shallow, mount} from 'enzyme';
 import { CreateAccount, mapDispatchToProps } from './CreateAccount';
 import React, { Component } from 'react';
+import { auth, db } from '../../firebase';
 
 describe('CreateAccount', () => {
   let history;
@@ -50,16 +51,12 @@ describe('CreateAccount', () => {
     expect(wrapper.state()).toEqual(expectedState);
   })
 
-  // it('should call handleCreateAccount on form submit', () => {
-  //   const mockHandleCreateAccount = jest.fn()
-  //   wrapper = mount(
-  //       <CreateAccount 
-  //        handleCreateAccount={mockHandleCreateAccount}
-  //        history={history}
-  //       />);
-  //   wrapper.find('form').simulate('submit');
-  //   expect(mockHandleCreateAccount).toHaveBeenCalled();
-  // })
+  it('should call auth.doCreateUserWithEmailAndPassword on submit', () => {
+    auth.doCreateUserWithEmailAndPassword = jest.fn().mockImplementation(() => Promise.resolve({
+    }))
+    wrapper.find('form').simulate('submit', { preventDefault: jest.fn() });
+    expect(auth.doCreateUserWithEmailAndPassword).toHaveBeenCalled();
+  })
 })
 
 describe('mapDispatchToProps', () => {

@@ -18,6 +18,9 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
+        <h5>
+          Enter a city, address or zipcode to search for tennis courts
+</h5>,
         <form
           onSubmit={[Function]}
 >
@@ -35,6 +38,17 @@ ShallowWrapper {
     },
     "ref": null,
     "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Enter a city, address or zipcode to search for tennis courts",
+        },
+        "ref": null,
+        "rendered": "Enter a city, address or zipcode to search for tennis courts",
+        "type": "h5",
+      },
       Object {
         "instance": null,
         "key": undefined,
@@ -90,6 +104,9 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          <h5>
+            Enter a city, address or zipcode to search for tennis courts
+</h5>,
           <form
             onSubmit={[Function]}
 >
@@ -107,6 +124,17 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Enter a city, address or zipcode to search for tennis courts",
+          },
+          "ref": null,
+          "rendered": "Enter a city, address or zipcode to search for tennis courts",
+          "type": "h5",
+        },
         Object {
           "instance": null,
           "key": undefined,

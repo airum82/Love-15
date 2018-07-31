@@ -125,4 +125,16 @@ describe('MapContainer', () => {
     mappedProps.handlefetchCourts(courts);
     expect(mockDispatch).toHaveBeenCalledWith(fetchCourts(courts));
   })
+
+  it('handleLocationEntry should set state on change', () => {
+    const wrapper = shallow(<MapContainer />);
+    expect(wrapper.state().location).toEqual('');
+    const mockEvent = {
+      target: {
+        value: 'denver'
+      }
+    }
+    wrapper.instance().handleLocationEntry(mockEvent);
+    expect(wrapper.state().location).toEqual('denver');
+  })
 })

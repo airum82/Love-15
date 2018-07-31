@@ -6,6 +6,25 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <CourtsContainer
     closeCourts={Array []}
+    favorites={
+        Array [
+            Object {
+              "name": "bobby",
+            },
+            Object {
+              "name": "jane",
+            },
+            Object {
+              "name": "jorge",
+            },
+          ]
+    }
+    handleSubmitCourts={[Function]}
+    location={
+        Object {
+            "pathname": "/",
+          }
+    }
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -59,6 +78,11 @@ ShallowWrapper {
             Object {},
           ]
     }
+    location={
+        Object {
+            "pathname": "/",
+          }
+    }
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -74,14 +98,48 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Unknown
+          account={undefined}
+          addFavoriteCourt={[Function]}
+          court={Object {}}
+          db={
+                    Object {
+                              "addFavoriteCourt": [Function],
+                              "checkForFavorites": [Function],
+                              "doCreateUser": [Function],
+                              "grabFavoriteCourtsList": [Function],
+                              "onceGetUsers": [Function],
+                              "removeFavoriteFromList": [Function],
+                            }
+          }
+          favorites={undefined}
+          handleFavorite={undefined}
+          id={0}
+          isFavorite={[Function]}
           location={undefined}
-          makeMapKey={[Function]}
           name={undefined}
+          removeFromFavorites={[Function]}
 />,
         <Unknown
+          account={undefined}
+          addFavoriteCourt={[Function]}
+          court={Object {}}
+          db={
+                    Object {
+                              "addFavoriteCourt": [Function],
+                              "checkForFavorites": [Function],
+                              "doCreateUser": [Function],
+                              "grabFavoriteCourtsList": [Function],
+                              "onceGetUsers": [Function],
+                              "removeFavoriteFromList": [Function],
+                            }
+          }
+          favorites={undefined}
+          handleFavorite={undefined}
+          id={1}
+          isFavorite={[Function]}
           location={undefined}
-          makeMapKey={[Function]}
           name={undefined}
+          removeFromFavorites={[Function]}
 />,
       ],
       "className": "courts-container",
@@ -93,9 +151,24 @@ ShallowWrapper {
         "key": "0",
         "nodeType": "function",
         "props": Object {
+          "account": undefined,
+          "addFavoriteCourt": [Function],
+          "court": Object {},
+          "db": Object {
+            "addFavoriteCourt": [Function],
+            "checkForFavorites": [Function],
+            "doCreateUser": [Function],
+            "grabFavoriteCourtsList": [Function],
+            "onceGetUsers": [Function],
+            "removeFavoriteFromList": [Function],
+          },
+          "favorites": undefined,
+          "handleFavorite": undefined,
+          "id": 0,
+          "isFavorite": [Function],
           "location": undefined,
-          "makeMapKey": [Function],
           "name": undefined,
+          "removeFromFavorites": [Function],
         },
         "ref": null,
         "rendered": null,
@@ -106,9 +179,24 @@ ShallowWrapper {
         "key": "1",
         "nodeType": "function",
         "props": Object {
+          "account": undefined,
+          "addFavoriteCourt": [Function],
+          "court": Object {},
+          "db": Object {
+            "addFavoriteCourt": [Function],
+            "checkForFavorites": [Function],
+            "doCreateUser": [Function],
+            "grabFavoriteCourtsList": [Function],
+            "onceGetUsers": [Function],
+            "removeFavoriteFromList": [Function],
+          },
+          "favorites": undefined,
+          "handleFavorite": undefined,
+          "id": 1,
+          "isFavorite": [Function],
           "location": undefined,
-          "makeMapKey": [Function],
           "name": undefined,
+          "removeFromFavorites": [Function],
         },
         "ref": null,
         "rendered": null,
@@ -125,14 +213,48 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Unknown
+            account={undefined}
+            addFavoriteCourt={[Function]}
+            court={Object {}}
+            db={
+                        Object {
+                                    "addFavoriteCourt": [Function],
+                                    "checkForFavorites": [Function],
+                                    "doCreateUser": [Function],
+                                    "grabFavoriteCourtsList": [Function],
+                                    "onceGetUsers": [Function],
+                                    "removeFavoriteFromList": [Function],
+                                  }
+            }
+            favorites={undefined}
+            handleFavorite={undefined}
+            id={0}
+            isFavorite={[Function]}
             location={undefined}
-            makeMapKey={[Function]}
             name={undefined}
+            removeFromFavorites={[Function]}
 />,
           <Unknown
+            account={undefined}
+            addFavoriteCourt={[Function]}
+            court={Object {}}
+            db={
+                        Object {
+                                    "addFavoriteCourt": [Function],
+                                    "checkForFavorites": [Function],
+                                    "doCreateUser": [Function],
+                                    "grabFavoriteCourtsList": [Function],
+                                    "onceGetUsers": [Function],
+                                    "removeFavoriteFromList": [Function],
+                                  }
+            }
+            favorites={undefined}
+            handleFavorite={undefined}
+            id={1}
+            isFavorite={[Function]}
             location={undefined}
-            makeMapKey={[Function]}
             name={undefined}
+            removeFromFavorites={[Function]}
 />,
         ],
         "className": "courts-container",
@@ -144,9 +266,24 @@ ShallowWrapper {
           "key": "0",
           "nodeType": "function",
           "props": Object {
+            "account": undefined,
+            "addFavoriteCourt": [Function],
+            "court": Object {},
+            "db": Object {
+              "addFavoriteCourt": [Function],
+              "checkForFavorites": [Function],
+              "doCreateUser": [Function],
+              "grabFavoriteCourtsList": [Function],
+              "onceGetUsers": [Function],
+              "removeFavoriteFromList": [Function],
+            },
+            "favorites": undefined,
+            "handleFavorite": undefined,
+            "id": 0,
+            "isFavorite": [Function],
             "location": undefined,
-            "makeMapKey": [Function],
             "name": undefined,
+            "removeFromFavorites": [Function],
           },
           "ref": null,
           "rendered": null,
@@ -157,9 +294,24 @@ ShallowWrapper {
           "key": "1",
           "nodeType": "function",
           "props": Object {
+            "account": undefined,
+            "addFavoriteCourt": [Function],
+            "court": Object {},
+            "db": Object {
+              "addFavoriteCourt": [Function],
+              "checkForFavorites": [Function],
+              "doCreateUser": [Function],
+              "grabFavoriteCourtsList": [Function],
+              "onceGetUsers": [Function],
+              "removeFavoriteFromList": [Function],
+            },
+            "favorites": undefined,
+            "handleFavorite": undefined,
+            "id": 1,
+            "isFavorite": [Function],
             "location": undefined,
-            "makeMapKey": [Function],
             "name": undefined,
+            "removeFromFavorites": [Function],
           },
           "ref": null,
           "rendered": null,

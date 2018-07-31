@@ -15,7 +15,7 @@ export class MapContainer extends Component {
       location: '',
       map: '',
       errorMessage: ''
-    }
+    };
   }
 
   fetchCoords = async (location) => {
@@ -26,12 +26,12 @@ export class MapContainer extends Component {
       const response = await fetch(url);
       const result = await response.json();
       this.setState({
-      coords: result.results[0].geometry.location
-      })
-    } catch(error) {
-        this.setState({
-          errorMessage: error.message
-        })
+        coords: result.results[0].geometry.location
+      });
+    } catch (error) {
+      this.setState({
+        errorMessage: error.message
+      });
     }
   }
 
@@ -44,22 +44,21 @@ export class MapContainer extends Component {
       radius: 17000,
       keyword: ['tennis']
     }, (result) => {
-      console.log(result);
       this.props.handlefetchCourts(cleanPlaces(result));
       this.setState({map: ''});
-    })
+    });
   };
 
   handleLocationEntry = (e) => {
     this.setState({
       location: e.target.value
-    })
+    });
   }
 
   makeMap = () => {
     this.setState({
       map: ''
-    })
+    });
     this.setState({
       map: <Map
         className="map"
@@ -74,7 +73,7 @@ export class MapContainer extends Component {
         initialCenter={this.state.coords}
         center={this.state.coords}
       />
-    })
+    });
   }
 
   render() {
@@ -91,17 +90,17 @@ export class MapContainer extends Component {
         </form>
         {this.state.map}
       </div>
-    )
+    );
   }
- }
+}
 
- export const mapStateToProps = (state) => ({
-   closeCourts: state.closeCourts
- });
+export const mapStateToProps = (state) => ({
+  closeCourts: state.closeCourts
+});
 
- export const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   handlefetchCourts: (courts) => dispatch(fetchCourts(courts))
- });
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(GoogleApiWrapper({
   apiKey: mapsKey
@@ -109,5 +108,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(GoogleApiWrapper({
 
 MapContainer.propTypes = {
   handlefetchCourts: PropTypes.func,
-  closeCourts: PropTypes.array
-}
+  closeCourts: PropTypes.array,
+  google: PropTypes.object
+};

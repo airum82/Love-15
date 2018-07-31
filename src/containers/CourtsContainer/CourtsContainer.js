@@ -88,6 +88,6 @@ CourtsContainer.propTypes = {
   handleFavorite: PropTypes.func,
   selectedCourt: PropTypes.object,
   history: PropTypes.object,
-  location: PropTypes.location
+  location: PropTypes.object
 };
 

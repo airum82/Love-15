@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, NavLink, withRouter } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MapContainer from '../googleMap/GoogleMap';
 import CourtsContainer from '../CourtsContainer/CourtsContainer';
@@ -8,7 +8,6 @@ import PropTypes from 'prop-types';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import LogIn from '../LogIn/LogIn';
 import Header from '../Header/Header';
-import { CourtCard } from '../../components/CourtCard/CourtCard';
 import CourtMap from '../../components/CourtMap/CourtMap';
 import UserList from '../UserList/UserList';
 import { firebase, db } from '../../firebase';
@@ -18,26 +17,27 @@ export class App extends Component {
 
   componentDidMount() {
     firebase.auth.onAuthStateChanged(authUser => {
-      if(authUser) {
+      if (authUser) {
         const { email, uid } = authUser;
         this.props.fetchUser(email, uid);
         db.checkForFavorites(uid)
           .then(result => {
-            if(result) {
+            if (result) {
               db.grabFavoriteCourtsList(uid)
                 .then(snapshot => snapshot.val())
                 .then(courts => Object.keys(courts).map(key =>
                   ({ key, ...courts[key] })))
-                .then(courtList => this.props.fetchFavoriteCourtList(courtList))
-              }
-            });
-        }
-        db.onceGetUsers().then(snapshot => 
-          Object.keys(snapshot.val())
-          .map(user => snapshot.val()[user]))
-          .then(userList => 
-            this.props.fetchUserList(userList))
+                .then(courtList => 
+                  this.props.fetchFavoriteCourtList(courtList));
+            }
+          });
       }
+      db.onceGetUsers().then(snapshot => 
+        Object.keys(snapshot.val())
+          .map(user => snapshot.val()[user]))
+        .then(userList => 
+          this.props.fetchUserList(userList));
+    }
     );
   }
 
@@ -59,10 +59,10 @@ export class App extends Component {
           <Route path = '/favorites' component={CourtsContainer} />
           <Route path='/court/:id' render={({ match }) => {
             const court = this.props.closeCourts.find( court => {
-              return court.id === parseInt(match.params.id)
+              return court.id === parseInt(match.params.id);
             }) || this.props.favorites.find( court => {
-              return court.id === parseInt(match.params.id)
-            })
+                return court.id === parseInt(match.params.id);
+              });
             return (
               <div className="court-with-map">
                 <CourtsContainer selectedCourt={[court]} />
@@ -70,7 +70,8 @@ export class App extends Component {
                   coord={court.coord}
                 />
               </div>
-            )}}
+            );
+          }}
           />
         </div>
       </div>
@@ -82,18 +83,21 @@ export const mapStateToProps = (state) => ({
   closeCourts: state.closeCourts,
   account: state.account,
   favorites: state.favorites
-})
+});
 
 export const mapDispatchToProps = dispatch => ({
   fetchUser: (user, uid) => dispatch(fetchAccount(user, uid)),
   fetchUserList: userList => dispatch(makeUserList(userList)),
   fetchFavoriteCourtList: courtList => dispatch(makeFavoritesList(courtList))
-})
+});
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 
 App.propTypes = {
   closeCourts: PropTypes.array,
   account: PropTypes.object,
-  fetchUser: PropTypes.func
-}
+  fetchUser: PropTypes.func,
+  favorites: PropTypes.array,
+  fetchUserList: PropTypes.func,
+  fetchFavoriteCourtList: PropTypes.func
+};

@@ -9,6 +9,6 @@ export const cleanPlaces = (places) => {
         lat: place.geometry.location.lat(),
         lng: place.geometry.location.lng()
       }
-    }
-  })
-}
+    };
+  });
+};

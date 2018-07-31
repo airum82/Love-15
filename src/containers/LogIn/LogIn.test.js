@@ -1,6 +1,6 @@
 import { LogIn, mapDispatchToProps } from './LogIn';
-import { shallow, mount} from 'enzyme';
-import React, { Component } from 'react';
+import { shallow } from 'enzyme';
+import React from 'react';
 import { logIn, makeUserList, makeFavoritesList } from '../../actions';
 import { auth, db } from '../../firebase';
 
@@ -8,11 +8,11 @@ describe('LogIn', () => {
   let wrapper;
   beforeEach(() => {
     wrapper = shallow(<LogIn />);
-  })
+  });
 
   it('should match snapshot upon render', () => {
     expect(wrapper).toMatchSnapshot();
-  })
+  });
 
   it('should call handleAccountEntry on change to form', () => {
     wrapper = shallow(<LogIn />);
@@ -20,7 +20,7 @@ describe('LogIn', () => {
     wrapper.find('form').simulate('change', { target: ''});
     wrapper.find('form').simulate('change', { target: ''});
     expect(spy).toHaveBeenCalled();
-  })
+  });
 
   it('handleAccountEntry should update state with user input', () => {
     const initialState = {

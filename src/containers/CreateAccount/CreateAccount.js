@@ -8,19 +8,19 @@ import { auth, db } from '../../firebase';
 
 export class CreateAccount extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       name: '',
       email: '',
       password: '',
       dateOfBirth: ''
-    }
+    };
   }
 
   handleDataEntry = (e) => {
     this.setState({
       [e.target.name] : e.target.value
-    })
+    });
   }
 
   resetState = () => {
@@ -29,7 +29,7 @@ export class CreateAccount extends Component {
       email: '',
       password: '',
       dateOfBirth: ''
-    })
+    });
   }
 
   render() {
@@ -39,12 +39,12 @@ export class CreateAccount extends Component {
           onChange={this.handleDataEntry}
           onSubmit={(e) => {
             auth.doCreateUserWithEmailAndPassword(
-              this.state.email,this.state.password)
+              this.state.email, this.state.password)
               .then(authUser => {
-                db.doCreateUser(authUser.user.uid, this.state.name, this.state.email)
+                db.doCreateUser(authUser.user.uid, this.state.name, this.state.email);
               })
               .then(authUser => this.props.handleCreateAccount(this.state))
-              .catch(error => this.setState({ error: error.message }))
+              .catch(error => this.setState({ error: error.message }));
             this.resetState();
             e.preventDefault();
             this.props.history.push('/');
@@ -54,19 +54,20 @@ export class CreateAccount extends Component {
           <p>Name: </p><input type="text" name="name" value={this.state.name} />
           <p>Passworld: </p><input type="password" name="password" value={this.state.password} />
           <p>DOB: </p><input type="text" name="dateOfBirth" value={this.state.dateOfBirth} />
-            <button>Create Account</button>
+          <button>Create Account</button>
         </form>
       </div>
-    )
+    );
   }
 }
 
 export const mapDispatchToProps = (dispatch) => ({
   handleCreateAccount: (accountInfo) => dispatch(createAccount(accountInfo))
-})
+});
 
 export default withRouter(connect(null, mapDispatchToProps)(CreateAccount));
 
 CreateAccount.propTypes = {
-  handleCreateAccount: PropTypes.func
-}
+  handleCreateAccount: PropTypes.func,
+  history: PropTypes.object
+};

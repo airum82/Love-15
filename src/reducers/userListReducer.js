@@ -1,5 +1,5 @@
 export const userListReducer = (state = [], action) => {
-  switch(action.type) {
+  switch (action.type) {
     case 'ADD_USER_LIST':
       return action.userList;
     case 'CLEAR_USER_LIST':
@@ -7,4 +7,4 @@ export const userListReducer = (state = [], action) => {
     default:
       return state;
   }
-}
+};

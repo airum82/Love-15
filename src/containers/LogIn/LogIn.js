@@ -4,27 +4,28 @@ import { logIn, makeUserList, makeFavoritesList } from '../../actions';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { auth, db } from '../../firebase';
-import './LogIn.css'
+import './LogIn.css';
 
 export class LogIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
-      password: '',
-    }
+      password: ''
+    };
   }
 
   handleAccountEntry = (e) => {
     this.setState({
       [e.target.name]: e.target.value
-    })
+    });
   }
 
   signIn = () => {
     return auth.doSignInWithEmailAndPassword(
       this.state.email, this.state.password)
-      .then(userAuth => this.props.handleLogIn(this.state.email, userAuth.user.uid))
+      .then(userAuth => this.props.handleLogIn(
+        this.state.email, userAuth.user.uid));
   }
 
   grabFavoriteCourts = (id) => {
@@ -32,7 +33,7 @@ export class LogIn extends Component {
       .then(snapshot => snapshot.val())
       .then(courts => Object.keys(courts).map(key =>
         ({ key, ...courts[key] })))
-      .then(courtList => this.props.fetchFavoritesList(courtList))
+      .then(courtList => this.props.fetchFavoritesList(courtList));
   }
 
   retrieveUsers = () => {
@@ -40,7 +41,7 @@ export class LogIn extends Component {
       Object.keys(snapshot.val())
         .map(user => snapshot.val()[user]))
       .then(userList =>
-        this.props.fetchUserList(userList))
+        this.props.fetchUserList(userList));
   }
 
   render() {
@@ -52,14 +53,13 @@ export class LogIn extends Component {
             e.preventDefault();
             try {
               await this.signIn()
-              .then(user => this.grabFavoriteCourts(user.id));
+                .then(user => this.grabFavoriteCourts(user.id));
               await this.retrieveUsers();
               this.setState({
-                  email: '',
-                  password: ''
-                })
-            }
-            catch(error) {
+                email: '',
+                password: ''
+              });
+            } catch (error) {
               this.setState({ error: error.message });
             }
           }}
@@ -72,7 +72,7 @@ export class LogIn extends Component {
           Don't have an account? create one!
         </NavLink>
       </div>
-    )
+    );
   }
 }
 
@@ -80,7 +80,7 @@ export const mapDispatchToProps = (dispatch) => ({
   handleLogIn: (accountInfo, id) => dispatch(logIn(accountInfo, id)),
   fetchUserList: (userList) => dispatch(makeUserList(userList)),
   fetchFavoritesList: (courtList) => dispatch(makeFavoritesList(courtList))
-})
+});
 
 export default connect(null, mapDispatchToProps)(LogIn);
 
@@ -88,4 +88,4 @@ LogIn.propTypes = {
   handleLogIn: PropTypes.func,
   fetchUserList: PropTypes.func,
   fetchFavoritesList: PropTypes.func
-}
+};

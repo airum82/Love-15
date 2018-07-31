@@ -10,29 +10,29 @@ export class UserList extends Component {
     return this.props.userList.map((user, index) => {
       return (
         <UserCard
-         key={index}
-         username={user.username}
+          key={index}
+          username={user.username}
         />
-      )
-    })
+      );
+    });
   }
 
   render() {
-    return(
+    return (
       <div className="user-list">
         {this.props.userList.length ?
           this.makeUserCard() : ''}
       </div>
-    )
+    );
   }
 }
 
 export const mapStateToProps = (state) => ({
   userList: state.userList
-})
+});
 
 export default connect(mapStateToProps)(UserList);
 
 UserList.propTypes = {
   userList: PropTypes.array
-}
+};

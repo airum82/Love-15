@@ -85,5 +85,7 @@ export const mapDispatchToProps = (dispatch) => ({
 export default connect(null, mapDispatchToProps)(LogIn);
 
 LogIn.propTypes = {
-  handleLogIn: PropTypes.func
+  handleLogIn: PropTypes.func,
+  fetchUserList: PropTypes.func,
+  fetchFavoritesList: PropTypes.func
 }

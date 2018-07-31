@@ -25,20 +25,18 @@ ShallowWrapper {
           <p>
                     Email:
           </p>
-           
           <input
                     name="email"
                     type="email"
+                    value=""
           />
-          <p
-                    className="password"
-          >
+          <p>
                     Password:
           </p>
-           
           <input
                     name="password"
                     type="password"
+                    value=""
           />
           <button>
                     Log In
@@ -47,12 +45,7 @@ ShallowWrapper {
         <NavLink
           activeClassName="active"
           aria-current="page"
-          style={
-                    Object {
-                              "color": "#3B3738",
-                              "textDecoration": "none",
-                            }
-          }
+          className="create-link"
           to="/createAccount"
 >
           Don't have an account? create one!
@@ -71,20 +64,18 @@ ShallowWrapper {
             <p>
               Email:
 </p>,
-            " ",
             <input
               name="email"
               type="email"
+              value=""
 />,
-            <p
-              className="password"
->
+            <p>
               Password:
 </p>,
-            " ",
             <input
               name="password"
               type="password"
+              value=""
 />,
             <button>
               Log In
@@ -106,7 +97,6 @@ ShallowWrapper {
             "rendered": "Email:",
             "type": "p",
           },
-          " ",
           Object {
             "instance": null,
             "key": undefined,
@@ -114,6 +104,7 @@ ShallowWrapper {
             "props": Object {
               "name": "email",
               "type": "email",
+              "value": "",
             },
             "ref": null,
             "rendered": null,
@@ -125,13 +116,11 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": "Password:",
-              "className": "password",
             },
             "ref": null,
             "rendered": "Password:",
             "type": "p",
           },
-          " ",
           Object {
             "instance": null,
             "key": undefined,
@@ -139,6 +128,7 @@ ShallowWrapper {
             "props": Object {
               "name": "password",
               "type": "password",
+              "value": "",
             },
             "ref": null,
             "rendered": null,
@@ -166,10 +156,7 @@ ShallowWrapper {
           "activeClassName": "active",
           "aria-current": "page",
           "children": "Don't have an account? create one!",
-          "style": Object {
-            "color": "#3B3738",
-            "textDecoration": "none",
-          },
+          "className": "create-link",
           "to": "/createAccount",
         },
         "ref": null,
@@ -193,20 +180,18 @@ ShallowWrapper {
             <p>
                         Email:
             </p>
-             
             <input
                         name="email"
                         type="email"
+                        value=""
             />
-            <p
-                        className="password"
-            >
+            <p>
                         Password:
             </p>
-             
             <input
                         name="password"
                         type="password"
+                        value=""
             />
             <button>
                         Log In
@@ -215,12 +200,7 @@ ShallowWrapper {
           <NavLink
             activeClassName="active"
             aria-current="page"
-            style={
-                        Object {
-                                    "color": "#3B3738",
-                                    "textDecoration": "none",
-                                  }
-            }
+            className="create-link"
             to="/createAccount"
 >
             Don't have an account? create one!
@@ -239,20 +219,18 @@ ShallowWrapper {
               <p>
                 Email:
 </p>,
-              " ",
               <input
                 name="email"
                 type="email"
+                value=""
 />,
-              <p
-                className="password"
->
+              <p>
                 Password:
 </p>,
-              " ",
               <input
                 name="password"
                 type="password"
+                value=""
 />,
               <button>
                 Log In
@@ -274,7 +252,6 @@ ShallowWrapper {
               "rendered": "Email:",
               "type": "p",
             },
-            " ",
             Object {
               "instance": null,
               "key": undefined,
@@ -282,6 +259,7 @@ ShallowWrapper {
               "props": Object {
                 "name": "email",
                 "type": "email",
+                "value": "",
               },
               "ref": null,
               "rendered": null,
@@ -293,13 +271,11 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": "Password:",
-                "className": "password",
               },
               "ref": null,
               "rendered": "Password:",
               "type": "p",
             },
-            " ",
             Object {
               "instance": null,
               "key": undefined,
@@ -307,6 +283,7 @@ ShallowWrapper {
               "props": Object {
                 "name": "password",
                 "type": "password",
+                "value": "",
               },
               "ref": null,
               "rendered": null,
@@ -334,10 +311,7 @@ ShallowWrapper {
             "activeClassName": "active",
             "aria-current": "page",
             "children": "Don't have an account? create one!",
-            "style": Object {
-              "color": "#3B3738",
-              "textDecoration": "none",
-            },
+            "className": "create-link",
             "to": "/createAccount",
           },
           "ref": null,

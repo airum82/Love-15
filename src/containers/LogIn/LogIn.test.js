@@ -52,21 +52,46 @@ describe('LogIn', () => {
     await wrapper.find('form').simulate('submit', { preventDefault: jest.fn()});
     expect(spy).toHaveBeenCalled();
   })
+  it('signIn should call auth.doSignInWithEmailAndPassword', () => {
+    const wrapper = shallow(
+     <LogIn
+      handleLogIn={jest.fn()}
+     />);
+    auth.doSignInWithEmailAndPassword = jest.fn().mockImplementation(() => Promise.resolve({
+      user: {
+        uid: 5455
+      }
+    }));
+    wrapper.instance().signIn();
+    expect(auth.doSignInWithEmailAndPassword).toHaveBeenCalled();
+  })
+
+  it('grabFavoriteCourts should call db.grabFavoriteCourtsList with correct params', () => {
+    wrapper = shallow(
+      <LogIn
+       fetchFavoritesList={jest.fn()} 
+      />)
+    db.grabFavoriteCourtsList = jest.fn().mockImplementation(() => Promise.resolve({
+      val: jest.fn().mockImplementation(() => ({ key: 4533 }))
+    }));
+    const mockId = 5;
+    wrapper.instance().grabFavoriteCourts(mockId)
+    expect(db.grabFavoriteCourtsList).toHaveBeenCalledWith(mockId);
+  })
+
+  it('retrieveUsers should call db.onceGetUsers', () => {
+    db.onceGetUsers = jest.fn().mockImplementation(() => Promise.resolve({
+      val: jest.fn().mockImplementation(() => ({ key: 4533 }))
+    }));
+    wrapper = shallow(
+      <LogIn
+       fetchUserList={jest.fn()} 
+      />);
+    wrapper.instance().retrieveUsers();
+    expect(db.onceGetUsers).toHaveBeenCalled();
+  })
 })
 
- it('signIn should call auth.doSignInWithEmailAndPassword', () => {
-   const wrapper = shallow(
-    <LogIn
-     handleLogIn={jest.fn()}
-    />);
-   auth.doSignInWithEmailAndPassword = jest.fn().mockImplementation(() => Promise.resolve({
-     user: {
-       uid: 5455
-     }
-   }));
-   wrapper.instance().signIn();
-   expect(auth.doSignInWithEmailAndPassword).toHaveBeenCalled();
- })
 
 describe('mapDispatchToProps', () => {
   let mockDispatch;

@@ -8,6 +8,10 @@
   text-decoration: none;
 }
 
+.map-link p {
+  display: none;
+}
+
 .court-card button {
   background-color: #60b0f4;
   color: white; 

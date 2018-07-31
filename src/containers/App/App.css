@@ -38,8 +38,9 @@ body::after{
 .back-button {
   background-color: #60b0f4;
   color: white;
-  width: 10vw;
+  width: 14vw;
   height: 5vh;
+  border: none;
 }
 
 .App::after {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { UserCard } from '../../components/UserCard/UserCard';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import './UserList.css';
 
 export class UserList extends Component {
   

@@ -17,7 +17,7 @@ export const CourtCard = (
 
   return (
     <div className="court-card">
-      <NavLink to={`/court/${id}`} className="map-link">
+      <NavLink to={`/court/${id}`} activeClassName="show-p" className="map-link">
         <h2>{name}</h2>
         <p>{location}</p>
       </NavLink>

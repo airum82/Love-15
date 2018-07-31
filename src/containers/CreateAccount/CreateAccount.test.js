@@ -57,17 +57,6 @@ describe('CreateAccount', () => {
     wrapper.find('form').simulate('submit', { preventDefault: jest.fn() });
     expect(auth.doCreateUserWithEmailAndPassword).toHaveBeenCalled();
   })
-
-  // it('should call handleCreateAccount on form submit', () => {
-  //   const mockHandleCreateAccount = jest.fn()
-  //   wrapper = mount(
-  //       <CreateAccount 
-  //        handleCreateAccount={mockHandleCreateAccount}
-  //        history={history}
-  //       />);
-  //   wrapper.find('form').simulate('submit');
-  //   expect(mockHandleCreateAccount).toHaveBeenCalled();
-  // })
 })
 
 describe('mapDispatchToProps', () => {

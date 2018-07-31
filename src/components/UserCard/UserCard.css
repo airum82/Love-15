@@ -1,3 +1,5 @@
 .user-card {
   background-color: rgba(229, 149, 0, 1);
+  width: 60%;
+  margin: 0 auto;
 }

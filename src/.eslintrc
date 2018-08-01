@@ -107,5 +107,14 @@
   },
   "globals": {
     "expect": true
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*test.js"],
+      "rules": {
+        "no-unused-expressions" : "off",
+        "semi": 0
+      }
+    }
+  ]
 }

@@ -86,7 +86,7 @@ CourtsContainer.propTypes = {
   account: PropTypes.object,
   favorites: PropTypes.array,
   handleFavorite: PropTypes.func,
-  selectedCourt: PropTypes.object,
+  selectedCourt: PropTypes.array,
   history: PropTypes.object,
   location: PropTypes.object
 };

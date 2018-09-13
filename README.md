@@ -1,6 +1,6 @@
-Creater: Arram Mandel
+<b>Creater:</b> Arram Mandel
 
-gitHub: https://github.com/airum82
+<b>gitHub:</b> https://github.com/airum82
 
 <b>Description:</b>
 
